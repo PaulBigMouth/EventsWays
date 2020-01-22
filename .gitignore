@@ -2,6 +2,10 @@
 # Created by https://www.gitignore.io/api/git,venv,django,python,windows,visualstudiocode
 # Edit at https://www.gitignore.io/?templates=git,venv,django,python,windows,visualstudiocode
 
+
+# JS
+node_modules/
+
 ### Django ###
 *.log
 *.pot

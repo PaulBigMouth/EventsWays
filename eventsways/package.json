@@ -1,0 +1,43 @@
+{
+  "name": "eventsways",
+  "version": "1.0.0",
+  "description": "PaulBigMouth strashnipal@mail.ru",
+  "main": "main.js",
+  "scripts": {
+    "start": "webpack --mode development",
+    "build": "webpack --mode production"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 3 version"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/semasolyara/EventsWays.git"
+  },
+  "keywords": [
+    "WildSandals",
+    "EventsWays"
+  ],
+  "author": "PaulBigMouth",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/semasolyara/EventsWays/issues"
+  },
+  "homepage": "https://github.com/semasolyara/EventsWays#readme",
+  "devDependencies": {
+    "autoprefixer": "^9.7.4",
+    "css-loader": "^3.4.2",
+    "css-mqpacker": "^7.0.0",
+    "cssnano": "^4.1.10",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.13.1",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.1.3",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1"
+  },
+  "dependencies": {}
+}
