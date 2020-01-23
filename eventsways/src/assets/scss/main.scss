@@ -1,6 +1,18 @@
 @import "./utils/var.scss";
 @import "./utils/fn.scss";
 
+@import "./components/header.scss";
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+a {
+  text-decoration: none;
+  color: $mainFontColor;
+  font-family: $openSans;
+}
+
 html {
   font-size: $mainFontSize;
   height: 100%;
@@ -16,4 +28,7 @@ html {
   @media screen and (max-with: 480px) {
     font-size: 12px;
   }
+}
+h1 {
+  font-family: $openSans;
 }
