@@ -1,0 +1,34 @@
+@import "./utils/var.scss";
+@import "./utils/fn.scss";
+
+@import "./components/header.scss";
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+a {
+  text-decoration: none;
+  color: $mainFontColor;
+  font-family: $openSans;
+}
+
+html {
+  font-size: $mainFontSize;
+  height: 100%;
+  color: $mainFontColor;
+  @media screen and (max-with: 1280px) {
+    font-size: 16px;
+  }
+
+  @media screen and (max-with: 768px) {
+    font-size: 14px;
+  }
+
+  @media screen and (max-with: 480px) {
+    font-size: 12px;
+  }
+}
+h1 {
+  font-family: $openSans;
+}
