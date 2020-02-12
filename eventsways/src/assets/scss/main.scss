@@ -1,34 +1,70 @@
 @import "./utils/var.scss";
 @import "./utils/fn.scss";
 
-@import "./components/header.scss";
+@import "./components/buttons/buttons.scss";
+@import "./components/header/header.scss";
+@import "./components/main/eventsFilter/eventsFilters.scss";
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: $mainFontSize;
+  color: $mainFontColor;
+  font-family: $openSans;
+  height: 100%;
+  @media screen and (max-width: $desktopWidth) {
+    font-size: 16px;
+  }
+  @media screen and (max-width: $tableWidth) {
+    font-size: 15px;
+  }
+  @media screen and (max-width: $phoneWidth) {
+    font-size: 14px;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: $mainFontColor;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
 
 .container {
   width: 90%;
   margin: 0 auto;
 }
-a {
-  text-decoration: none;
-  color: $mainFontColor;
-  font-family: $openSans;
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
-html {
-  font-size: $mainFontSize;
-  height: 100%;
-  color: $mainFontColor;
-  @media screen and (max-with: 1280px) {
-    font-size: 16px;
-  }
-
-  @media screen and (max-with: 768px) {
-    font-size: 14px;
-  }
-
-  @media screen and (max-with: 480px) {
-    font-size: 12px;
-  }
-}
-h1 {
-  font-family: $openSans;
+.a {
+  font-size: rem(30);
 }

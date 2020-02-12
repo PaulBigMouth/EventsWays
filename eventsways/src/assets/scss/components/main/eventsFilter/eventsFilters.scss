@@ -1,0 +1,46 @@
+.events__main-inner {
+  margin-top: 100px;
+  font-family: $roboto;
+}
+
+.main-filter {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  position: relative;
+  margin: 75px 0 50px;
+}
+.filter {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.main-filter-picker {
+  height: 0;
+  position: relative;
+  display: flex;
+  font-size: rem(24);
+  margin-bottom: 100px;
+  overflow: hidden;
+  transition: height 0.2s linear;
+}
+
+.city > input,
+.date > input {
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.7);
+  outline: none;
+  background: transparent;
+  font-family: $openSans;
+  font-size: rem(24);
+  font-weight: 700;
+
+  width: 150px;
+}
+
+.date {
+  margin-left: 15%;
+}
+.cityInp {
+  color: #3d64ff;
+}

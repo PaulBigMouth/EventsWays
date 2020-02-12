@@ -1,0 +1,19 @@
+.btn {
+  padding: 10px;
+  border: 2px solid #000;
+  text-transform: uppercase;
+  background-color: transparent;
+  cursor: pointer;
+  font-weight: 900;
+  font-family: $alegreyaSans;
+}
+
+.btn-shadow {
+  transition: all 0.2s linear;
+  font-size: rem(18);
+}
+.btn-shadow:hover {
+  border-color: $hoverColor;
+  color: #fff;
+  background-color: $hoverColor;
+}
