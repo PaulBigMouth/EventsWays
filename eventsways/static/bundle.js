@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/main.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -120,15 +120,27 @@ eval("var api = __webpack_require__(/*! ../../../node_modules/style-loader/dist/
 
 /***/ }),
 
-/***/ "./src/main.js":
-/*!*********************!*\
-  !*** ./src/main.js ***!
-  \*********************/
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _assets_scss_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/scss/main.scss */ \"./src/assets/scss/main.scss\");\n/* harmony import */ var _assets_scss_main_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_assets_scss_main_scss__WEBPACK_IMPORTED_MODULE_0__);\n\n\nconsole.log(\"gg\");\n\n\n//# sourceURL=webpack:///./src/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _js_main_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./js/main/main */ \"./src/js/main/main.js\");\n/* harmony import */ var _assets_scss_main_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assets/scss/main.scss */ \"./src/assets/scss/main.scss\");\n/* harmony import */ var _assets_scss_main_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_assets_scss_main_scss__WEBPACK_IMPORTED_MODULE_1__);\n\n\n\n\nObject(_js_main_main__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n\n\n//# sourceURL=webpack:///./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/js/main/main.js":
+/*!*****************************!*\
+  !*** ./src/js/main/main.js ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nconst Main = () => {\r\n  const headerInputBlock = document.querySelector(\".header-input\");\r\n  const headerInput = document.querySelector(\".header-input input\");\r\n  const headerSearchIcon = document.querySelector(\".header-input i\");\r\n\r\n  headerInput.onblur = function() {\r\n    headerInputBlock.style.borderColor = \"#000\";\r\n    headerSearchIcon.style.color = \"#000\";\r\n  };\r\n\r\n  headerInput.onfocus = function() {\r\n    headerInputBlock.style.borderColor = \"#d2b356\";\r\n    headerSearchIcon.style.color = \"#d2b356\";\r\n  };\r\n\r\n  const inpCity = document.getElementById(\"city\");\r\n  const inpCityValue = inpCity.value;\r\n\r\n  inpCity.addEventListener(\"input\", inpval);\r\n\r\n  function inpval(event) {\r\n    let val = this.value;\r\n\r\n    if (inpCityValue !== val) {\r\n      inpCity.classList.add(\"cityInp\");\r\n    }\r\n  }\r\n\r\n  // FILTER\r\n  const filt = document.querySelector(\".filter\");\r\n  const filterPicker = document.querySelector(\".main-filter-picker\");\r\n  const filterChevron = document.querySelector(\".main-filter i\");\r\n  let filterFlag = false;\r\n  console.log(filt, filterPicker);\r\n\r\n  filt.addEventListener(\"click\", function() {\r\n    if (filterFlag) {\r\n      filterPicker.style.height = 0;\r\n      filterChevron.className = \"fas fa-chevron-down\";\r\n      filterFlag = false;\r\n    } else {\r\n      filterPicker.style.height = 100 + \"px\";\r\n      filterChevron.className = \"fas fa-chevron-up\";\r\n      filterFlag = true;\r\n    }\r\n  });\r\n};\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (Main);\r\n\n\n//# sourceURL=webpack:///./src/js/main/main.js?");
 
 /***/ })
 

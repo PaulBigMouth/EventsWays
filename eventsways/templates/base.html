@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script
+      src="https://kit.fontawesome.com/d4b7d5dae0.js"
+      crossorigin="anonymous"
+    ></script>
+  <link rel="stylesheet" href="{% static "main.css" %}">
+</head> 
+<body>
+  
+  <header class="header">
+    <img src="./img/banner-image-1.jpg" alt="" class="banner-img" />
+    <div class="container">
+      <nav class="header-nav">
+        <div class="nav-menu flex-row">
+          <div class="header-logo">
+            <a href="#">EVENTSWAYS</a>
+            <div class="header-input">
+              <i class="fas fa-search"></i>
+              <input type="text" placeholder="Поиск событий" />
+            </div>
+          </div>
+
+          <div class="list">
+            <ul class="header-list">
+              <li class="header-list-item">
+                <a href="#" class="header-link">Обзор</a>
+              </li>
+              <li class="header-list-item">
+                <a href="#" class="header-link">Помощь</a>
+              </li>
+              <li><button class="btn header-btn">Создать событие</button></li>
+            </ul>
+          </div>
+          <div class="toggle-menu">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+      </nav>
+      <div class="banner">
+        <div class="banner-text">
+          <h1>Создавай свои события у нас бесплатно</h1>
+        </div>
+        <button class="btn btn-shadow">Подробнее</button>
+      </div>
+    </div>
+  </header>
+  {% block content %} {% endblock %}
+
+  <script src="{% static "bundle.js" %}"></script>
+</body>
+</html>
+
+
