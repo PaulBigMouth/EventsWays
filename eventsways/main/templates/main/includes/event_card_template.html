@@ -1,0 +1,12 @@
+<p>{{ event.title }}</p>
+
+<h4>{{ event.body|truncatewords:15 }}</h4>
+
+<h5>{{ event.events_holding }}</h5>
+    
+<a href="{{ event.get_absolute_url }}">Переход к странице поста</a>
+
+{% for tag in event.tags.all %}
+    <h3>Tag:</h3>
+    <a href="{{ tag.get_absolute_url }}"> {{ tag.title }}</a>
+{% endfor %}
