@@ -1,12 +1,28 @@
-<p>{{ event.title }}</p>
+<li class="event-list">
+  <section class="event-item">
+    <div class="event-img">
+      <a href="#" class="event-link-img">
+        <img src="./img/stock-photo-152707951.jpg" alt="" />
+      </a>
+    </div>
+    <div class="container">
+      <div class="event-item-title">
+        <a href="#">{{ event.title }}</a>
+      </div>
+      <p class="event-item-date">
+        <i class="far fa-calendar-alt"></i>{{ event.events_holding_date }}
+        <i class="far fa-clock"></i>{{ event.events_holding_time }}
+      </p>
+      <p class="event-item-description">
+        Lorem Ipsum является текст-заполнитель обычно используется в
+        графических,
+      </p>
+      <p class="event-item-place">REPUBLICK | <span>Минск</span></p>
+    </div>
+  </section>
+</li>
 
-<h4>{{ event.body|truncatewords:15 }}</h4>
-
-<h5>{{ event.events_holding }}</h5>
-    
-<a href="{{ event.get_absolute_url }}">Переход к странице поста</a>
-
-{% for tag in event.tags.all %}
+<!--{% for tag in event.tags.all %}
     <h3>Tag:</h3>
     <a href="{{ tag.get_absolute_url }}"> {{ tag.title }}</a>
-{% endfor %}
+{% endfor %}-->

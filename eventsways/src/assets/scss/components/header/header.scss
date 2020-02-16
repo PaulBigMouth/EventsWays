@@ -1,45 +1,75 @@
 .header {
   width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  position: relative;
+  padding: 15px 0;
+  position: fixed;
+  z-index: 10000;
+  top: 0;
+  animation: none 1s ease;
+  background-color: #fff;
+  box-shadow: 2px 0px 3px rgba(0, 0, 0, 0.2);
 }
 .header-nav {
-  padding: 20px 0;
+  position: relative;
 }
 .nav-menu {
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 20% 30% 45%;
   position: relative;
-  @media screen and (max-width: 1020px) {
-    flex-direction: column;
+  max-height: 42px;
+  overflow: hidden;
+  @media screen and (max-width: $smDesktopWidth) {
+    grid-template-columns: 30% 60%;
+    overflow: visible;
+  }
+  @media screen and (max-width: $tableWidth) {
+    grid-template-columns: 40% 50%;
   }
 }
 
 .toggle-menu {
+  display: none;
   position: absolute;
   top: 0;
-  width: 90%;
-  display: flex;
+  height: 100%;
+  width: 95%;
+  z-index: 9;
   justify-content: flex-end;
-  @media screen and (max-width: 1020px) {
-    display: block;
+  align-items: center;
+  @media screen and (max-width: $smDesktopWidth) {
+    display: flex;
   }
+}
+.toggle-menu > i {
+  z-index: 100000;
+  position: absolute;
 }
 
 .header-logo {
   display: flex;
   align-items: center;
-  @media screen and (max-width: 1020px) {
-    width: 100%;
-  }
+  margin-left: 30px;
 }
 .header-logo > a {
   font-weight: 700;
   font-size: rem(32);
   letter-spacing: 1px;
 }
+
+.header-item-search {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  z-index: 10000;
+  @media screen and (max-width: $smTableWidth) {
+    position: absolute;
+    width: 100%;
+    height: 0;
+    justify-content: center;
+    top: 140%;
+  }
+}
+
 .header-input {
-  margin-left: 40px;
   padding: 0 10px;
   height: 33.6px;
   width: 300px;
@@ -49,6 +79,10 @@
   align-items: center;
   position: relative;
   transition: border-color 0.1s linear;
+  @media screen and (max-width: $smTableWidth) {
+    width: 100%;
+    background-color: rgb(250, 250, 250);
+  }
 }
 .header-input > i {
   transition: color 0.1s linear;
@@ -65,18 +99,46 @@
 
 .header-list {
   display: flex;
+  justify-content: flex-end;
   align-items: center;
-  @media screen and (max-width: 1020px) {
+  overflow: hidden;
+  @media screen and (max-width: $smDesktopWidth) {
+    position: absolute;
+    top: 101%;
+    width: 100%;
+    height: 0;
+    background-color: rgb(250, 250, 250);
+    z-index: 1000;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
     flex-direction: column;
+    justify-content: center;
+  }
+  @media screen and (max-width: $smTableWidth) {
+    top: 231%;
   }
 }
 
 .header-list-item {
   margin: 0 20px;
   position: relative;
+  @media screen and (max-width: $smDesktopWidth) {
+    padding: 10px 0;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #000;
+  }
 }
 .header-list li:last-of-type {
   margin-left: 45px;
+  @media screen and (max-width: $smDesktopWidth) {
+    margin-left: 0;
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .header-list-item::after {
@@ -110,6 +172,11 @@
   transition: all 0.5s linear;
 }
 
+.header-list > li > .btn {
+  @media screen and (max-width: $smDesktopWidth) {
+    padding: 10px 20%;
+  }
+}
 .header-btn::before {
   content: "";
   display: block;
@@ -132,89 +199,4 @@
 .header-btn:hover::before {
   animation: header-btn 0.5s ease-out;
   margin-left: 0;
-}
-
-@keyframes header-btn {
-  0% {
-    margin-left: 120%;
-  }
-  20% {
-    margin-left: 80%;
-  }
-  40% {
-    margin-left: 40%;
-  }
-  60% {
-    margin-left: 0;
-  }
-  80% {
-    margin-left: -40%;
-  }
-  100% {
-    margin-left: 0;
-  }
-}
-.banner-img {
-  position: absolute;
-  height: 100%;
-  z-index: -100;
-  width: 100%;
-  @media screen and (max-width: 1100px) {
-    width: 110%;
-  }
-  @media screen and (max-width: 950px) {
-    width: 120%;
-    left: -10%;
-  }
-  @media screen and (max-width: 850px) {
-    width: 130%;
-    left: -15%;
-  }
-  @media screen and (max-width: 700px) {
-    width: 140%;
-    left: -20%;
-  }
-  @media screen and (max-width: 650px) {
-    width: 150%;
-  }
-  @media screen and (max-width: 550px) {
-    width: 170%;
-    left: -30%;
-  }
-  @media screen and (max-width: 440px) {
-    width: 180%;
-    left: -40%;
-  }
-  @media screen and (max-width: 360px) {
-    width: 190%;
-    left: -45%;
-  }
-}
-
-.banner {
-  margin-top: 200px;
-  width: 40%;
-  font-weight: 700;
-  font-family: $roboto;
-}
-.banner-text {
-  margin-bottom: 45px;
-  position: relative;
-}
-.banner-text h1 {
-  font-size: rem(40);
-}
-.banner-text::before,
-.banner-text::after {
-  content: "";
-  display: block;
-  height: 7px;
-  background-color: $hoverColor;
-  width: 45px;
-}
-.banner-text::before {
-  margin-bottom: 10px;
-}
-.banner-text::after {
-  margin-top: 10px;
 }

@@ -1,0 +1,66 @@
+.main-events {
+  background-color: rgb(238, 238, 238);
+  padding: 100px 0 300px;
+}
+.main-events-title {
+  font-size: rem(34);
+  text-align: center;
+  position: relative;
+  padding: 70px 0 20px;
+}
+.main-events-title::after {
+  content: "";
+  display: block;
+  height: 7px;
+  background-color: $hoverColor;
+  width: 45px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.event-list {
+  margin: 15px 20px;
+}
+
+.event-item {
+  margin-top: 20px;
+  transition: margin 0.2s linear;
+  background-color: #fff;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+.event-item:hover {
+  margin-top: 0;
+}
+.event-img {
+  height: 175px;
+}
+.event-link-img {
+  height: 100%;
+  width: 100%;
+}
+.event-link-img img {
+  height: 100%;
+  width: 100%;
+}
+.event-item-title {
+  margin-top: 10px;
+  font-weight: 700;
+  font-family: $openSans;
+  font-size: rem(22);
+}
+.event-item-date {
+  font-size: rem(17);
+  color: rgb(182, 41, 41);
+  font-family: $roboto;
+}
+.event-item-description {
+  color: #444;
+  font-family: $alegreyaSans;
+}
+.event-item-place {
+  color: #777;
+  font-family: $openSans;
+  padding: 0 0 10px;
+}

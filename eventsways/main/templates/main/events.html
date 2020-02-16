@@ -1,20 +1,38 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block content %}
+<div id="overlay" style="display: none;"></div>
+    <section id="events">
+      <aside class="filters">
+        <div class="filters-inner">
+          <div class="filters-close">
+            <i class="fas fa-times fa-lg"></i>
+          </div>
+        </div>
+      </aside>
+      
+      <section class="allevents">
+        <div class="container">
+            <div class="events-filters-btn">
+              <button class="btn btn-shadow" style="display: block;">Фильтры</button>
+            </div>
+            <ul class="main-event-ul all-events-list">
+              {% for event in events %}
+          {% include 'main/includes/event_card_template.html' %}
+      {% endfor %}
+            </ul>
+        </div>
+      </section>
+    </section>
 
-{% block title %}
-    {{ event.title }} - {{ block.super }}
-{% endblock %}
+  <!--<section class="main-events">
+  <h2 class="<main-events-ti></main-events-ti>tle">Свежие события</h2>
+  <div class="container">
+    <ul class="main-event-ul">
+      {% for event in events %}
+          {% include 'main/includes/event_card_template.html' %}
+      {% endfor %}
+    </ul>
+  </div>
+</section>-->
 
-
-{% block content %}
-
-    <h1>Events:</h1>
-
-    {% for event in events %}
-    
-         {% include 'main/includes/event_card_template.html' %}
-
-    {% endfor %}
-
-
-
-{% endblock  %}
+  {% endblock %}
+</section>

@@ -1,0 +1,65 @@
+#help {
+  padding: 100px 0;
+}
+
+.help-group {
+  position: relative;
+  width: 300px;
+  @media screen and (max-width: $smTableWidth) {
+    width: 200px;
+  }
+}
+.help-input {
+  width: 100%;
+  height: 30px;
+  font-size: rem(20);
+  border: none;
+  border-bottom: 2px solid #ccc;
+  padding: 10px;
+}
+
+.help-input:focus {
+  outline: none;
+}
+
+.help-group > label {
+  color: #999;
+  font-size: rem(18);
+  position: absolute;
+  pointer-events: none;
+  left: 10px;
+  top: 0px;
+  transition: all 0.3s ease;
+}
+.help-input:focus ~ label,
+.help-input:valid ~ label {
+  top: -15px;
+  font-size: 14px;
+  color: $hoverColor;
+}
+.bar {
+  position: relative;
+  display: block;
+  color: $hoverColor;
+}
+
+.bar::before,
+.bar::after {
+  content: "";
+  height: 2px;
+  width: 0;
+  bottom: 0;
+  position: absolute;
+  background-color: $hoverColor;
+  transition: all 0.3s ease;
+}
+.bar::before {
+  left: 50%;
+}
+.bar::after {
+  right: 50%;
+}
+.help-input:focus ~ .bar::before,
+.help-input:focus ~ .bar::after {
+  width: 50%;
+}

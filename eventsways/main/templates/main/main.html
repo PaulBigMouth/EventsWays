@@ -1,5 +1,22 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %} {% block content %}
+<section id="banner">
+  <div class="container">
+    <div class="banner">
+      <div class="banner-text">
+        <h1>Создавай свои события у нас бесплатно</h1>
+      </div>
+      <button class="btn btn-shadow">Подробнее</button>
+    </div>
+  </div>
+</section>
 
-{% block content %}
-
+<section class="main-events">
+  <h2 class="main-events-title">Свежие события</h2>
+  <div class="container">
+    <ul class="main-event-ul main-list">
+      {% for event in events %}
+      {% include 'main/includes/event_card_template.html' %} {% endfor %}
+    </ul>
+  </div>
+</section>
 {% endblock %}

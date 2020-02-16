@@ -12,5 +12,5 @@ class TagAdmin(admin.ModelAdmin):
 
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
-    list_display = ('title', 'body', 'slug', 'events_holding')
+    list_display = ('title', 'body', 'slug', 'events_holding_date', 'events_holding_time')
 
