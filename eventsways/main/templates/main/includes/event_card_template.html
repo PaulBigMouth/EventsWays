@@ -1,13 +1,14 @@
+
 <li class="event-list">
   <section class="event-item">
     <div class="event-img">
-      <a href="#" class="event-link-img">
-        <img src="./img/stock-photo-152707951.jpg" alt="" />
+      <a href="{{ event.get_absolute_url }}" class="event-link-img">
+        <img src="{{ MEDIA_URL }}{{ event.events_image }}" alt="" />
       </a>
     </div>
     <div class="container">
       <div class="event-item-title">
-        <a href="#">{{ event.title }}</a>
+        <a href="{{ event.get_absolute_url }}">{{ event.title }}</a>
       </div>
       <p class="event-item-date">
         <i class="far fa-calendar-alt"></i>{{ event.events_holding_date }}

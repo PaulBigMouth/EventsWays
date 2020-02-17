@@ -25,7 +25,9 @@
         <div class="header-item-search">
           <div class="header-input">
             <i class="fas fa-search"></i>
-            <input type="text" placeholder="Поиск событий" />
+            <form action="{% url "events" %}">
+            <input type="search" placeholder="Поиск событий" name="search"/>
+            </form>
           </div>
 
 

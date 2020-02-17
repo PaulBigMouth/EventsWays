@@ -11,7 +11,7 @@ def gen_slug(s):
 
 
 class Event(models.Model):
-    title = models.CharField(max_length = 150, db_index = True)
+    title = models.CharField(max_length = 50, db_index = True)
 
     slug = models.SlugField(max_length = 150, blank = True, unique = True)
 
@@ -20,6 +20,8 @@ class Event(models.Model):
     events_holding_date = models.DateField(blank=True)
 
     events_holding_time = models.TimeField(blank=True)
+
+    events_image = models.ImageField(upload_to="img/", height_field=None, width_field=None, max_length=None)
 
     tags = models.ManyToManyField("Tag", blank = True, related_name='events')
 
@@ -44,6 +46,8 @@ class Event(models.Model):
         verbose_name = 'Событие'
         verbose_name_plural = 'События'
 
+        ordering = ['events_holding_date']
+
 
 
 class Tag(models.Model):
@@ -66,3 +70,5 @@ class Tag(models.Model):
     class Meta:
         verbose_name = 'Тег'
         verbose_name_plural = 'Теги'
+
+        ordering = ['title']

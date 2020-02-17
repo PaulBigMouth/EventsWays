@@ -4,26 +4,14 @@
 
 {% block content %}
 
+<div class="form-create-block" style='margin-top: 150px;'>
     <form action='{% url 'event_create_url' %}' method='post'>
         {% csrf_token %}
        
-
-        {% for field in form %}
-
-            {% if field.errors %}
-            
-                {{ field.errors }}
-            
-            {% endif %}
-
-
-            {{ field.label }}
-            {{ field }}
-
-        {% endfor %}
+        {{ form.as_p }}
 
         <button type='submit'>Create Event</button>
     </form>
-
+</div>
 
 {% endblock %}

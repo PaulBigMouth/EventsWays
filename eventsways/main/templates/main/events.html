@@ -1,5 +1,7 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
 {% load static %}
+
+{% block content %}
 <div id="overlay" style="display: none;"></div>
 <section id="events">
   <aside class="filters">
@@ -16,24 +18,46 @@
         <button class="btn btn-shadow">Фильтры</button>
       </div>
       <ul class="main-event-ul all-events-list">
-        {% for event in events %}
+        {% for event in page_object.object_list %}
         {% include 'main/includes/event_card_template.html' %}
         {% endfor %}
       </ul>
     </div>
+
+    <!--PAGINATION-->
+
+  {% if is_paginated %}
+
+    <nav aria-label="...">
+  <ul class="pagination">
+    <li class="page-item {% if not prev_url %} disabled {% endif %}">
+      <a class="page-link" href="{{ prev_url }}" tabindex="-1" aria-disabled="true">Previous</a>
+    </li>
+
+    {% for n in page_object.paginator.page_range %}  
+
+      {% if page_object.number == n %}
+          <!-- Activ page -->
+          <li class="page-item"><a class="page-link" href="?page={{ n }}">{{ n }}</a></li>
+      {% elif n > page_object.number|add:-3 and n < page_object.number|add:3 %}
+
+      <li class="page-item"><a class="page-link" href="?page={{ n }}">{{ n }}</a></li>
+      
+      {% endif %}
+
+    {% endfor %}
+
+    <li class="page-item {% if not next_url %} disabled {% endif %}">
+      <a class="page-link" href="{{ next_url }}">Next</a>
+    </li>
+  </ul>
+</nav>
+{% endif %}
+
   </section>
-</section>
+</section>  
 <script src="{% static "events.bundle.js" %}"></script>
-<!--<section class="main-events">
-  <h2 class="<main-events-ti></main-events-ti>tle">Свежие события</h2>
-  <div class="container">
-    <ul class="main-event-ul">
-      {% for event in events %}
-          {% include 'main/includes/event_card_template.html' %}
-      {% endfor %}
-    </ul>
-  </div>
-</section>-->
+
 
 {% endblock %}
 </section>
