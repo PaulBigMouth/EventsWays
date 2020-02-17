@@ -1,19 +1,17 @@
-//import Main from "./js/main/main";
-
 import "./assets/scss/main.scss";
 
-const html = document.querySelector("html");
+
 (function Main() {
   const headerInputBlock = document.querySelector(".header-input");
   const headerInput = document.querySelector(".header-input input");
   const headerSearchIcon = document.querySelector(".header-input i");
-
-  headerInput.onblur = function() {
+  const html = document.querySelector("html");
+  headerInput.onblur = function () {
     headerInputBlock.style.borderColor = "#000";
     headerSearchIcon.style.color = "#000";
   };
 
-  headerInput.onfocus = function() {
+  headerInput.onfocus = function () {
     headerInputBlock.style.borderColor = "#d2b356";
     headerSearchIcon.style.color = "#d2b356";
   };
@@ -23,7 +21,7 @@ const html = document.querySelector("html");
   const headerItemSearch = document.querySelector(".header-item-search");
   let flag = false;
 
-  burgerMenu.addEventListener("click", function() {
+  burgerMenu.addEventListener("click", function () {
     let w = html.clientWidth;
 
     //console.log(w);
