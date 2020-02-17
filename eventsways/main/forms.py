@@ -27,13 +27,14 @@ class TagForm(forms.ModelForm):
 class EventForm(forms.ModelForm):
     class Meta:
         model = Event
-        fields = ['title', 'slug', 'body', 'events_holding', 'tags']
+        fields = ['title', 'slug', 'body', 'events_holding_date', 'events_holding_time','tags']
 
         widgets = {
             'title': forms.TextInput(),
             'slug': forms.TextInput(),
             'body': forms.Textarea(),
-            'events_holding': forms.DateTimeInput(),
+            'events_holding_date': forms.DateInput(),
+            'events_holding_time': forms.TimeInput(),
             'tags': forms.SelectMultiple(),
         }
 

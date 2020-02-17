@@ -2,8 +2,13 @@
 @import "./utils/fn.scss";
 
 @import "./components/buttons/buttons.scss";
+@import "./animation/animation.scss";
 @import "./components/header/header.scss";
-@import "./components/main/eventsFilter/eventsFilters.scss";
+@import "./components/footer/footer.scss";
+@import "./components/main/eventsList/eventsList.scss";
+@import "./components/main/banner/banner.scss";
+
+@import "./components/events/events.scss";
 
 *,
 *:before,
@@ -16,6 +21,7 @@ html {
   color: $mainFontColor;
   font-family: $openSans;
   height: 100%;
+  overflow-x: hidden;
   @media screen and (max-width: $desktopWidth) {
     font-size: 16px;
   }
@@ -30,6 +36,7 @@ html {
 body {
   margin: 0;
   padding: 0;
+  position: relative;
 }
 
 h1,
@@ -45,7 +52,9 @@ a {
   text-decoration: none;
   color: $mainFontColor;
 }
-
+p {
+  margin: 5px 0;
+}
 ul,
 li {
   margin: 0;
@@ -65,6 +74,38 @@ li {
   align-items: center;
 }
 
-.a {
-  font-size: rem(30);
+#overlay {
+  position: absolute;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.main-event-ul {
+  padding: 50px 0;
+  display: grid;
+}
+
+.main-list {
+  grid-template-columns: 25% 25% 25% 25%;
+  @media screen and (max-width: $smDesktopWidth) {
+    grid-template-columns: 33.3333% 33.3333% 33.3333%;
+  }
+  @media screen and (max-width: $tableWidth) {
+    grid-template-columns: 50% 50%;
+  }
+  @media screen and (max-width: $phoneWidth) {
+    grid-template-columns: 100%;
+  }
+}
+
+.all-events-list {
+  grid-template-columns: 33.33333% 33.33333% 33.33333%;
+  @media screen and (max-width: $smDesktopWidth) {
+    grid-template-columns: 50% 50%;
+  }
+  @media screen and (max-width: $smTableWidth) {
+    grid-template-columns: 100%;
+  }
 }

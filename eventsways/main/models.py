@@ -17,7 +17,9 @@ class Event(models.Model):
 
     body = models.TextField(blank=True, db_index = True)
 
-    events_holding = models.DateTimeField()
+    events_holding_date = models.DateField(blank=True)
+
+    events_holding_time = models.TimeField(blank=True)
 
     tags = models.ManyToManyField("Tag", blank = True, related_name='events')
 

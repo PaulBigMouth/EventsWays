@@ -1,0 +1,61 @@
+#events {
+  position: relative;
+  display: grid;
+
+  grid-template-columns: 300px calc(100% - 300px);
+  background-color: rgb(238, 238, 238);
+  @media screen and (max-width: 880px) {
+    grid-template-columns: 100%;
+  }
+}
+.events-filters-btn {
+  width: 100%;
+  display: none;
+  justify-content: center;
+  @media screen and (max-width:880px){
+    display: flex;
+    
+  }
+}
+.filters{
+  @media screen and (max-width:880px){
+    display: none;
+    width: 0;
+  }
+}
+.filters-inner {
+  padding: 100px 0 300px;
+  position: fixed;
+  width: 300px;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #fff;
+  transition: all 0.2s linear;
+  z-index: 1000;
+  @media screen and (max-width:880px){
+    left: -500px;
+  }
+  @media screen and (max-width: $phoneWidth) {
+    width: 100%;
+    z-index: 2000;
+    padding-bottom: 0;
+  }
+}
+.filters-close {
+  display: flex;
+  padding: 0 30px;
+  justify-content: flex-end;
+}
+.filters-close > i {
+  display: none;
+  cursor: pointer;
+}
+
+.allevents {
+  padding: 150px 0 200px;
+  overflow: hidden;
+  @media screen and (max-width: $phoneWidth) {
+    padding-bottom: 300px;
+  }
+}

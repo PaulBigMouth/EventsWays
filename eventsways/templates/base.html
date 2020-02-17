@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,55 +9,83 @@
   {% block title %}
   <title>Events Ways</title>
   {% endblock %}
-  <script
-      src="https://kit.fontawesome.com/d4b7d5dae0.js"
-      crossorigin="anonymous"
-    ></script>
-  <link rel="stylesheet" href="{% static "main.css" %}">
-</head> 
+  <script src="https://kit.fontawesome.com/d4b7d5dae0.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{% static "index.css" %}">
+</head>
+
 <body>
-  
+
   <header class="header">
-    <img src="./img/banner-image-1.jpg" alt="" class="banner-img" />
-    <div class="container">
-      <nav class="header-nav">
-        <div class="nav-menu flex-row">
-          <div class="header-logo">
-            <a href="#">EVENTSWAYS</a>
-            <div class="header-input">
-              <i class="fas fa-search"></i>
-              <input type="text" placeholder="Поиск событий" />
-            </div>
+
+    <nav class="header-nav">
+      <div class="nav-menu">
+        <div class="header-logo">
+          <a href="#">EVENTSWAYS</a>
+        </div>
+        <div class="header-item-search">
+          <div class="header-input">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Поиск событий" />
           </div>
 
-          <div class="list">
-            <ul class="header-list">
-              <li class="header-list-item">
-                <a href="#" class="header-link">Обзор</a>
-              </li>
-              <li class="header-list-item">
-                <a href="#" class="header-link">Помощь</a>
-              </li>
-              <li><button class="btn header-btn">Создать событие</button></li>
-            </ul>
-          </div>
-          <div class="toggle-menu">
-            <i class="fas fa-bars"></i>
-          </div>
+
         </div>
-      </nav>
-      <div class="banner">
-        <div class="banner-text">
-          <h1>Создавай свои события у нас бесплатно</h1>
-        </div>
-        <button class="btn btn-shadow">Подробнее</button>
+        <ul class="header-list">
+          <li class="header-list-item">
+            <a href="#" class="header-link">События</a>
+          </li>
+          <li class="header-list-item">
+            <a href="#" class="header-link">Обзор</a>
+          </li>
+          <li class="header-list-item">
+            <a href="#" class="header-link">Помощь</a>
+          </li>
+          <li><button class="header-btn btn">Создать событие</button></li>
+        </ul>
       </div>
-    </div>
+
+      <div class="toggle-menu">
+        <i class="fas fa-bars"></i>
+      </div>
+      </div>
+    </nav>
+
   </header>
   {% block content %} {% endblock %}
 
-  <script src="{% static "bundle.js" %}"></script>
+
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <a href="#">EVENTSWAYS</a>
+            <span>eventsways@gmail.com</span>
+          </div>
+          <nav class="footer-nav">
+            <ul class="footer-ul">
+              <li class="footer-list"><a href="#">События</a></li>
+              <li class="footer-list"><a href="#">Обзор</a></li>
+              <li class="footer-list"><a href="#">Помощь</a></li>
+            </ul>
+          </nav>
+          <div class="footer-social">
+            <p>Мы в Соц.сетях</p>
+            <div class="footer-social-items">
+              <a href=""><i class="fab fa-instagram"></i></a>
+              <a href=""><i class="fab fa-youtube"></i></a>
+              <a href=""><i class="fab fa-twitter"></i></a>
+              <a href=""><i class="fab fa-telegram-plane"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          Copyright © EVENTSWAYS 2020 Все права защищены
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="{% static "index.bundle.js" %}"></script>
 </body>
+
 </html>
-
-

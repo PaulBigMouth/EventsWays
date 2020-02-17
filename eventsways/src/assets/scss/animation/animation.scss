@@ -1,0 +1,40 @@
+@keyframes header-btn {
+  0% {
+    margin-left: 120%;
+  }
+  20% {
+    margin-left: 80%;
+  }
+  40% {
+    margin-left: 40%;
+  }
+  60% {
+    margin-left: 0;
+  }
+  80% {
+    margin-left: -40%;
+  }
+  100% {
+    margin-left: 0;
+  }
+}
+
+// header animation
+
+@keyframes header {
+  0% {
+    top: -150px;
+  }
+
+  100% {
+    top: 0;
+  }
+}
+@keyframes reverseHeader {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: -150px;
+  }
+}

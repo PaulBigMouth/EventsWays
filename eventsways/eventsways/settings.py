@@ -78,14 +78,14 @@ WSGI_APPLICATION = 'eventsways.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-'''
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-'''
+
 
 
 # Password validation
@@ -135,8 +135,8 @@ STATICFILES_DIRS = (
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = '/media/'
 
-
+"""
 try:
     from .local_settings import *
 except ImportError:
-    from .prod_settings import *
+    from .prod_settings import *"""
