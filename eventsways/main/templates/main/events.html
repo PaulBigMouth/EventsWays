@@ -1,18 +1,20 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 {% load static %}
 
 {% block content %}
-
 <div id="overlay" style="display: none;"></div>
 <section id="events">
   <aside class="filters">
-    <div class="filters-inner">{% for category in view.get_category %}
-    
-    {{ category.title }}
-
-    {% endfor %}
+    <div class="filters-inner">
       <div class="filters-close">
         <i class="fas fa-times fa-lg"></i>
+      </div>
+      <div class="view">
+        <div class="view-inner">
+          <button id="grid-events-btn" class="active-btn" data-flag="0" disabled><i class="fas fa-th"></i></button>
+          <button id="list-events-btn" data-flag="1"><i class="fas fa-list"></i></button>
+          <button id="map-events-btn" data-flag="2"><i class="fas fa-map-marked-alt"></i></button>
+        </div>
       </div>
     </div>
   </aside>
@@ -27,42 +29,45 @@
         {% include 'main/includes/event_card_template.html' %}
         {% endfor %}
       </ul>
+      <div class="mapbox mapOff">
+        <div id="map"></div>
+      </div>
     </div>
 
     <!--PAGINATION-->
 
-  {% if is_paginated %}
+    {% if is_paginated %}
 
-    <nav aria-label="...">
-  <ul class="pagination">
-    <li class="page-item {% if not prev_url %} disabled {% endif %}">
-      <a class="page-link" href="{{ prev_url }}" tabindex="-1" aria-disabled="true">Previous</a>
-    </li>
+    <nav aria-label="..." class="pagination-nav">
+      <ul class="pagination flex-row">
+        <li class="page-item {% if not prev_url %} disabled {% endif %}">
+          <a class="page-link" href="{{ prev_url }}" tabindex="-1" aria-disabled="true">Пред</a>
+        </li>
 
-    {% for n in page_object.paginator.page_range %}  
+        {% for n in page_object.paginator.page_range %}
 
-      {% if page_object.number == n %}
-          <!-- Activ page -->
-          <li class="page-item"><a class="page-link" href="?page={{ n }}">{{ n }}</a></li>
-      {% elif n > page_object.number|add:-3 and n < page_object.number|add:3 %}
+        {% if page_object.number == n %}
+        <!-- Activ page -->
+        <li class="page-item"><a class="page-link page-active" href="?page={{ n }}">{{ n }}</a></li>
+        {% elif n > page_object.number|add:-3 and n < page_object.number|add:3 %}
 
-      <li class="page-item"><a class="page-link" href="?page={{ n }}">{{ n }}</a></li>
-      
-      {% endif %}
+        <li class="page-item"><a class="page-link" href="?page={{ n }}">{{ n }}</a></li>
 
-    {% endfor %}
+        {% endif %}
 
-    <li class="page-item {% if not next_url %} disabled {% endif %}">
-      <a class="page-link" href="{{ next_url }}">Next</a>
-    </li>
-  </ul>
-</nav>
-{% endif %}
+        {% endfor %}
+
+        <li class="page-item {% if not next_url %} disabled {% endif %}">
+          <a class="page-link" href="{{ next_url }}">След</a>
+        </li>
+      </ul>
+    </nav>
+    {% endif %}
 
   </section>
-</section>  
+</section>
 <script src="{% static "events.bundle.js" %}"></script>
-
+<script src="{% static "eventsMap.bundle.js" %}"></script>
 
 {% endblock %}
 </section>
