@@ -43,10 +43,9 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'django_filters',
 
-
 ]
 
-
+GOOGLE_API_KEY = 'AIzaSyAFXrB8Z6ZUrZXrzwd0I2oIS7ilnnq61gY'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

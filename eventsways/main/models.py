@@ -3,6 +3,7 @@ from django.shortcuts import reverse
 from django.utils.text import slugify
 from time import time
 
+
 def gen_slug(s):
     new_slug = slugify(s, allow_unicode=True)
     return new_slug + '-' + str(int(time()))
@@ -24,6 +25,10 @@ class Event(models.Model):
     events_image = models.ImageField(upload_to="img/", height_field=None, width_field=None, max_length=None)
 
     category = models.ForeignKey("Category", blank = True, related_name='events', on_delete=models.CASCADE)
+
+    location = models.CharField(max_length=50)
+
+    address = models.ForeignKey("Address", blank=True, on_delete=models.CASCADE, related_name='events')
 
     def __str__(self):
         return '{}'.format(self.title)
@@ -49,6 +54,16 @@ class Event(models.Model):
         ordering = ['events_holding_date']
 
 
+class Address(models.Model):
+    premises = models.CharField(max_length=50)
+    street = models.CharField(max_length=50)
+    city = models.CharField(max_length=50)
+    region = models.CharField(max_length=50)
+    country = models.CharField(max_length=50)
+
+    class Meta:
+        verbose_name = 'Адрес'
+        verbose_name_plural = 'Адреса'
 
 class Category(models.Model):
     title = models.CharField(max_length=50)

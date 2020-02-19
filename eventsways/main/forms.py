@@ -1,6 +1,11 @@
 from django import forms
-from .models import Category, Event
+from .models import Category, Event, Address
 from django.core.exceptions import ValidationError
+
+class AddressForm(forms.ModelForm):
+    class Meta:
+        model = Address
+        fields = ['country', 'region','city','street','premises']
 
 class CategoryForm(forms.ModelForm):
     class Meta:
