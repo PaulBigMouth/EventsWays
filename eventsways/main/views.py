@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic import View
+from django.views.generic import View, ListView, DetailView
 from .models import *
 from .forms import *
 
@@ -9,6 +9,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
 
 from django.db.models import Q
+from .filters import EventFilter
+
 def main(request):
     return render(request, 'main/main.html')
 
@@ -37,6 +39,7 @@ def events(request):
         next_url = '?page={}'.format(page.next_page_number())
     else:
         next_url = ''
+    
 
 
     context = {
@@ -47,7 +50,6 @@ def events(request):
         }
 
     return render(request, 'main/events.html', context)
-
 
 class EventDetail(ObjectDetailMixin, View):
     model = Event
@@ -71,32 +73,30 @@ class EventDelete(LoginRequiredMixin,ObjectDeleteMixin,View):
     raise_exception = True
 
 
-class TagDetail(ObjectDetailMixin, View):
-    model = Tag
-    template = 'main/tag_detail.html'
+class CategoryDetail(ObjectDetailMixin, View):
+    model = Category
+    template = 'main/Category_detail.html'
 
-class TagCreate(LoginRequiredMixin,ObjectCreateMixin,View):
-    form_model = TagForm
-    template = 'main/tag_create.html'
+class CategoryCreate(LoginRequiredMixin,ObjectCreateMixin,View):
+    form_model = CategoryForm
+    template = 'main/Category_create.html'
     raise_exception = True
 
-class TagUpdate(LoginRequiredMixin,ObjectUpdateMixin,View):
-    model = Tag
-    model_form = TagForm
-    template = 'main/tag_update.html'
-    raise_exception = True
-    
-class TagDelete(LoginRequiredMixin,ObjectDeleteMixin,View):
-    model = Tag
-    template = 'main/tag_delete.html'
-    redirect_url = 'tags_list_url'
+class CategoryUpdate(LoginRequiredMixin,ObjectUpdateMixin,View):
+    model = Category
+    model_form = CategoryForm
+    template = 'main/Category_update.html'
     raise_exception = True
     
-def tags_list(request):
-    tags = Tag.objects.all()
-    context = {'tags': tags}
-    return render(request, 'main/tags_list.html', context)  
-
+class CategoryDelete(LoginRequiredMixin,ObjectDeleteMixin,View):
+    model = Category
+    template = 'main/Category_delete.html'
+    redirect_url = 'Categorys_list_url'
+    raise_exception = True
+    
+class CategoryList(ListView):
+    model = Category
+    queryset = Category.objects.all()
 
 def blog(request):
     return render(request, 'main/blog.html')

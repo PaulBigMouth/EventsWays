@@ -2,10 +2,15 @@
 {% load static %}
 
 {% block content %}
+
 <div id="overlay" style="display: none;"></div>
 <section id="events">
   <aside class="filters">
-    <div class="filters-inner">
+    <div class="filters-inner">{% for category in view.get_category %}
+    
+    {{ category.title }}
+
+    {% endfor %}
       <div class="filters-close">
         <i class="fas fa-times fa-lg"></i>
       </div>

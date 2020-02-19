@@ -26,6 +26,7 @@ urlpatterns = [
     path('', redirect_events),
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

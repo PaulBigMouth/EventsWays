@@ -1,10 +1,10 @@
 from django import forms
-from .models import Tag, Event
+from .models import Category, Event
 from django.core.exceptions import ValidationError
 
-class TagForm(forms.ModelForm):
+class CategoryForm(forms.ModelForm):
     class Meta:
-        model = Tag
+        model = Category
         fields = ['title', 'slug']
 
         widgets = {
@@ -27,7 +27,7 @@ class TagForm(forms.ModelForm):
 class EventForm(forms.ModelForm):
     class Meta:
         model = Event
-        fields = ['title', 'slug', 'body', 'events_holding_date', 'events_holding_time', 'events_image','tags']
+        fields = ['title', 'slug', 'body', 'events_holding_date', 'events_holding_time', 'events_image','category']
 
         widgets = {
             'title': forms.TextInput(),
@@ -36,7 +36,7 @@ class EventForm(forms.ModelForm):
             'events_holding_date': forms.DateInput(),
             'events_holding_time': forms.TimeInput(),
             #'events_image': forms.ImageField(required=False),
-            'tags': forms.SelectMultiple(),
+            'category': forms.SelectMultiple(),
         }
 
     def clean_slug(self):

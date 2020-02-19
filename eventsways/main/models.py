@@ -23,7 +23,7 @@ class Event(models.Model):
 
     events_image = models.ImageField(upload_to="img/", height_field=None, width_field=None, max_length=None)
 
-    tags = models.ManyToManyField("Tag", blank = True, related_name='events')
+    category = models.ForeignKey("Category", blank = True, related_name='events', on_delete=models.CASCADE)
 
     def __str__(self):
         return '{}'.format(self.title)
@@ -50,7 +50,7 @@ class Event(models.Model):
 
 
 
-class Tag(models.Model):
+class Category(models.Model):
     title = models.CharField(max_length=50)
     slug = models.SlugField(max_length = 50, unique = True)
 
@@ -59,16 +59,16 @@ class Tag(models.Model):
         return f'{self.title}'
     
     def get_absolute_url(self):
-        return reverse("tag_detail_url", kwargs={"slug": self.slug})
+        return reverse("category_detail_url", kwargs={"slug": self.slug})
     
     def get_update_url(self):
-        return reverse('tag_update_url', kwargs={'slug': self.slug })
+        return reverse('category_update_url', kwargs={'slug': self.slug })
 
     def get_delete_url(self):
-        return reverse('tag_delete_url', kwargs={'slug': self.slug })
+        return reverse('category_delete_url', kwargs={'slug': self.slug })
 
     class Meta:
-        verbose_name = 'Тег'
-        verbose_name_plural = 'Теги'
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'
 
         ordering = ['title']
