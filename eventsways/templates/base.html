@@ -11,6 +11,9 @@
   {% endblock %}
   <script src="https://kit.fontawesome.com/d4b7d5dae0.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="{% static "index.css" %}">
+
+  <script src='https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.css' rel='stylesheet' />
 </head>
 
 <body>
@@ -25,8 +28,8 @@
         <div class="header-item-search">
           <div class="header-input">
             <i class="fas fa-search"></i>
-            <form action="{% url "events" %}">
-            <input type="search" placeholder="Поиск событий" name="search"/>
+            <form action="{% url "events" %}" class="header-form-input">
+              <input type="search" placeholder="Поиск событий" name="search" />
             </form>
           </div>
 
@@ -53,8 +56,9 @@
     </nav>
 
   </header>
-  {% block content %} {% endblock %}
-
+  <main id="main">
+    {% block content %} {% endblock %}
+  </main>
 
   <footer id="footer">
     <div class="container">

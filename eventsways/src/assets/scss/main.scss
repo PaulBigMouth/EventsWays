@@ -20,7 +20,7 @@ html {
   font-size: $mainFontSize;
   color: $mainFontColor;
   font-family: $openSans;
-  height: 100%;
+  position: relative;
   overflow-x: hidden;
   @media screen and (max-width: $desktopWidth) {
     font-size: 16px;
@@ -37,6 +37,8 @@ body {
   margin: 0;
   padding: 0;
   position: relative;
+  overflow: hidden;
+  min-height: 100vh;
 }
 
 h1,
@@ -100,6 +102,17 @@ li {
   }
 }
 
+.list-events-list{
+  grid-template-columns: 100%;
+  padding: 75px;
+  @media screen and (max-width: 1060px) {
+    padding: 0;
+  }
+  
+ 
+  
+}
+
 .all-events-list {
   grid-template-columns: 33.33333% 33.33333% 33.33333%;
   @media screen and (max-width: $smDesktopWidth) {
@@ -108,4 +121,10 @@ li {
   @media screen and (max-width: $smTableWidth) {
     grid-template-columns: 100%;
   }
+}
+
+#main{
+  min-height: 90vh;
+  width: 100%;
+  padding-top: 80px;
 }

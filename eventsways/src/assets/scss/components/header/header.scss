@@ -87,7 +87,10 @@
 .header-input > i {
   transition: color 0.1s linear;
 }
-.header-input > input {
+.header-form-input{
+  width: 100%;
+}
+.header-form-input > input {
   margin-left: 20px;
   height: 33.6px;
   width: 100%;
