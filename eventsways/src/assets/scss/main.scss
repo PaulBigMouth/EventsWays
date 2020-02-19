@@ -9,6 +9,7 @@
 @import "./components/main/banner/banner.scss";
 
 @import "./components/events/events.scss";
+@import "./components/eventsCreate/eventsCreate.scss";
 
 *,
 *:before,
@@ -68,7 +69,6 @@ li {
   width: 90%;
   margin: 0 auto;
 }
-
 .flex-row {
   display: flex;
   flex-direction: row;
@@ -88,7 +88,10 @@ li {
   padding: 50px 0;
   display: grid;
 }
-
+.event-create-ul{
+  display: grid;
+  grid-template-columns: 100%;
+}
 .main-list {
   grid-template-columns: 25% 25% 25% 25%;
   @media screen and (max-width: $smDesktopWidth) {
@@ -126,5 +129,7 @@ li {
 #main{
   min-height: 90vh;
   width: 100%;
-  padding-top: 80px;
+}
+.section-container{
+  padding-top: 100px;
 }

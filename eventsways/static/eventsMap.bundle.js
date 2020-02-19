@@ -1,1 +1,100 @@
-!function(e){var t={};function n(r){if(t[r])return t[r].exports;var a=t[r]={i:r,l:!1,exports:{}};return e[r].call(a.exports,a,a.exports,n),a.l=!0,a.exports}n.m=e,n.c=t,n.d=function(e,t,r){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(n.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var a in e)n.d(r,a,function(t){return e[t]}.bind(null,a));return r},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=5)}({5:function(e,t){mapboxgl.accessToken="pk.eyJ1IjoicGF1bGJpZ21vdXRoIiwiYSI6ImNrNm83cTc0ZTBzNnMzbGx5YWdlNjFwOWwifQ.5V5xu7ylKhZeABTVBfwEKQ";let n=new mapboxgl.Map({container:"map",style:"mapbox://styles/mapbox/streets-v9",zoom:11,center:[-77.032,38.913],pitch:45,bearing:17.6,trackResize:!0});n.on("dataloading",()=>{window.dispatchEvent(new Event("resize"))});let r=new mapboxgl.NavigationControl({showCompass:!0,showZoom:!0});n.addControl(r,"bottom-right");let a={type:"FeatureCollection",features:[]};n.on("load",()=>{const e=document.querySelectorAll(".event-item");n.loadImage("../../../media/img/0cea943396e58ff6b1338f64f3221d1f_Um5BWTk.jpg",(function(t,r){if(t)throw t;n.addImage("marker",r),e.forEach(e=>{a.features.push({type:"Feature",geometry:{type:"Point",coordinates:[+e.getAttribute("data-lng"),+e.getAttribute("data-lat")]},properties:{title:e.getAttribute("data-title"),date:e.getAttribute("data-date"),time:e.getAttribute("data-time"),place:e.getAttribute("data-place"),description:e.getAttribute("data-description"),href:e.getAttribute("data-href"),image:e.getAttribute("data-image")}})}),n.addSource("pointsSource",{type:"geojson",data:a}),n.addLayer({id:"points",source:"pointsSource",type:"symbol",layout:{"icon-image":"marker","icon-size":.1}})}))}),n.on("click",e=>{const t=n.queryRenderedFeatures(e.point,{layers:["points"]});if(t.length){n.panTo(e.lngLat),new mapboxgl.Popup({closeButton:!1}).setLngLat(e.lngLat).setHTML(`<section class="event-item">\n            <div class="event-img">\n              <a href=${t[0].properties.href} class="event-link-img">\n                <img src=${t[0].properties.image} alt="" />\n              </a>\n            </div>\n            <div class="container">\n              <div class="event-item-title">\n                <a href=${t[0].properties.href}>${t[0].properties.title}</a>\n              </div>\n              <p class="event-item-date">\n                <i class="far fa-calendar-alt"> ${t[0].properties.date}</i> \n                <i class="far fa-clock"> ${t[0].properties.time}</i> \n              </p>\n              <p class="event-item-description">\n                ${t[0].properties.description}\n              </p>\n              <p class="event-item-place">${t[0].properties.place}</p>\n            </div>\n          </section>`).addTo(n)}})}});
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/events/allEventsMap.js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./src/js/events/allEventsMap.js":
+/*!***************************************!*\
+  !*** ./src/js/events/allEventsMap.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\r\nmapboxgl.accessToken =\r\n  \"pk.eyJ1IjoicGF1bGJpZ21vdXRoIiwiYSI6ImNrNm83cTc0ZTBzNnMzbGx5YWdlNjFwOWwifQ.5V5xu7ylKhZeABTVBfwEKQ\";\r\n\r\nlet map = new mapboxgl.Map({\r\n  container: \"map\",\r\n  style: \"mapbox://styles/mapbox/streets-v9\",\r\n  zoom: 11,\r\n  center: [-77.032, 38.913],\r\n  pitch: 45,\r\n  bearing: 17.6,\r\n  trackResize: true\r\n});\r\nmap.on('dataloading', () => {\r\n  window.dispatchEvent(new Event('resize'));\r\n  // mapboxObj.resize(); also work\r\n});\r\nlet nav = new mapboxgl.NavigationControl({\r\n  showCompass: true,\r\n  showZoom: true\r\n});\r\n\r\n\r\nmap.addControl(nav, \"bottom-right\");\r\n\r\nlet geojson = {\r\n  type: \"FeatureCollection\",\r\n  features: [\r\n\r\n  ]\r\n}\r\n\r\nmap.on(\"load\", () => {\r\n  const events = document.querySelectorAll('.event-item');\r\n  map.loadImage('../../../media/img/0cea943396e58ff6b1338f64f3221d1f_Um5BWTk.jpg',\r\n    function (error, image) {\r\n      if (error) throw error;\r\n      map.addImage('marker', image);\r\n      events.forEach((elem) => {\r\n        geojson.features.push({\r\n          type: \"Feature\",\r\n          geometry: {\r\n            type: \"Point\",\r\n            coordinates: [+elem.getAttribute('data-lng'), +elem.getAttribute('data-lat')]\r\n          },\r\n          properties: {\r\n            title: elem.getAttribute('data-title'),\r\n            date: elem.getAttribute('data-date'),\r\n            time: elem.getAttribute('data-time'),\r\n            place: elem.getAttribute('data-place'),\r\n            description: elem.getAttribute('data-description'),\r\n            href: elem.getAttribute('data-href'),\r\n            image: elem.getAttribute('data-image')\r\n          }\r\n        })\r\n      })\r\n      map.addSource(\"pointsSource\", {\r\n        type: 'geojson',\r\n        data: geojson\r\n      })\r\n      map.addLayer({\r\n        id: \"points\",\r\n        source: \"pointsSource\",\r\n        type: \"symbol\",\r\n        layout: {\r\n          \"icon-image\": \"marker\",\r\n          \"icon-size\": 0.1\r\n        }\r\n\r\n\r\n      })\r\n    }\r\n\r\n  )\r\n\r\n\r\n\r\n})\r\n\r\nmap.on(\"click\", (e) => {\r\n  const result = map.queryRenderedFeatures(e.point, { layers: [\"points\"] });\r\n  if (result.length) {\r\n    map.panTo(e.lngLat)\r\n    const popup = new mapboxgl.Popup({ closeButton: false });\r\n    popup.setLngLat(e.lngLat)\r\n      .setHTML(`<section class=\"event-item\">\r\n            <div class=\"event-img\">\r\n              <a href=${result[0].properties.href} class=\"event-link-img\">\r\n                <img src=${result[0].properties.image} alt=\"\" />\r\n              </a>\r\n            </div>\r\n            <div class=\"container\">\r\n              <div class=\"event-item-title\">\r\n                <a href=${result[0].properties.href}>${result[0].properties.title}</a>\r\n              </div>\r\n              <p class=\"event-item-date\">\r\n                <i class=\"far fa-calendar-alt\"> ${result[0].properties.date}</i> \r\n                <i class=\"far fa-clock\"> ${result[0].properties.time}</i> \r\n              </p>\r\n              <p class=\"event-item-description\">\r\n                ${result[0].properties.description}\r\n              </p>\r\n              <p class=\"event-item-place\">${result[0].properties.place}</p>\r\n            </div>\r\n          </section>`)\r\n      .addTo(map)\r\n  }\r\n})\n\n//# sourceURL=webpack:///./src/js/events/allEventsMap.js?");
+
+/***/ })
+
+/******/ });

@@ -3,7 +3,7 @@
   display: grid;
 
   grid-template-columns: 300px calc(100% - 300px);
-  background-color: rgb(238, 238, 238);
+  background-color: $secondFontColor;
   @media screen and (max-width: 880px) {
     grid-template-columns: 100%;
   }
@@ -112,7 +112,7 @@
 
 .view{
   padding-bottom: 10px;
-  border-bottom: 1px solid  rgb(238, 238, 238);
+  border-bottom: 1px solid  $secondFontColor;
 }
 
 .view-inner{
@@ -123,7 +123,7 @@
 
 .view-inner button{
   border: none;
-  background-color:  rgb(238, 238, 238);
+  background-color:  $secondFontColor;
   font-family: $roboto;
   padding: 6px 12px;
   font-weight: 700;
