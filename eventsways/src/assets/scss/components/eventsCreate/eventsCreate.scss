@@ -99,3 +99,24 @@
 .create-event-btn button:hover{
     background-color: rgb(4, 82, 11);
 }
+
+.create-event-mapbox{
+    height: 300px;
+    width: 100%;
+    margin-bottom: 40px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.marker{
+    background-image: url("https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png");
+            background-size: cover;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            position: absolute;
+}
+#create-event-map{
+    height: 100%;
+    width: 100%;
+}

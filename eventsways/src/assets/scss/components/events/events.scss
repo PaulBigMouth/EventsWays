@@ -11,8 +11,11 @@
 
 .events-filters-btn {
   width: 100%;
-  display: flex;
+  display: none;
   justify-content: center;
+  @media screen and (max-width: 880px) {
+    display: flex;
+  }
 }
 .filters{
   @media screen and (max-width:880px){
@@ -61,6 +64,7 @@
   height: 70vh;
   margin: 70px 0;
   position: relative;
+  
 }
 #map{
   width: 100%;

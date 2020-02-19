@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 
 
 {% block content %}
@@ -12,7 +12,9 @@
                         {% csrf_token %}
 
                         {{ form.as_p }}
-
+                        <div class="create-event-mapbox">
+                            <div id="create-event-map"></div>
+                        </div>
                         <div class="create-event-btn">
                             <button type='submit'>Создать событие</button>
                         </div>
@@ -23,78 +25,7 @@
                 <div class="container">
                     <div class="event-create-events-list-inner">
                         <ul class="event-create-ul">
-                            <li class="event-list">
-                                <section class="event-item">
-                                    <div class="event-img">
-                                        <a href="#" class="event-link-img">
-                                            <img src="./img/stock-photo-152707951.jpg" alt="" />
-                                        </a>
-                                    </div>
-                                    <div class="container">
-                                        <div class="event-item-title">
-                                            <a href="#">Title</a>
-                                        </div>
-                                        <p class="event-item-date">
-                                            <i class="far fa-calendar-alt"></i> 18 февраля 2020
-                                            <i class="far fa-clock"></i> 19:00
-                                        </p>
-                                        <p class="event-item-description">
-                                            Lorem Ipsum является текст-заполнитель обычно используется в графических,
-                                        </p>
-                                        <p class="event-item-place">
-                                            REPUBLICK | <span>Минск</span>
-                                        </p>
-                                    </div>
-                                </section>
-                            </li>
-                            <li class="event-list">
-                                <section class="event-item">
-                                    <div class="event-img">
-                                        <a href="#" class="event-link-img">
-                                            <img src="./img/stock-photo-152707951.jpg" alt="" />
-                                        </a>
-                                    </div>
-                                    <div class="container">
-                                        <div class="event-item-title">
-                                            <a href="#">Title</a>
-                                        </div>
-                                        <p class="event-item-date">
-                                            <i class="far fa-calendar-alt"></i> 18 февраля 2020
-                                            <i class="far fa-clock"></i> 19:00
-                                        </p>
-                                        <p class="event-item-description">
-                                            Lorem Ipsum является текст-заполнитель обычно используется в графических,
-                                        </p>
-                                        <p class="event-item-place">
-                                            REPUBLICK | <span>Минск</span>
-                                        </p>
-                                    </div>
-                                </section>
-                            </li>
-                            <li class="event-list">
-                                <section class="event-item">
-                                    <div class="event-img">
-                                        <a href="#" class="event-link-img">
-                                            <img src="./img/stock-photo-152707951.jpg" alt="" />
-                                        </a>
-                                    </div>
-                                    <div class="container">
-                                        <div class="event-item-title">
-                                            <a href="#">Title</a>
-                                        </div>
-                                        <p class="event-item-date">
-                                            <i class="far fa-calendar-alt"></i> 18 февраля 2020
-                                            <i class="far fa-clock"></i> 19:00
-                                        </p>
-                                        <p class="event-item-description">
-                                            Lorem Ipsum является текст-заполнитель обычно используется в графических,
-                                        </p>
-                                        <p class="event-item-place">
-                                            REPUBLICK | <span>Минск</span>
-                                        </p>
-                                    </div>
-                                </section>
-                            </li>
+
                         </ul>
                     </div>
                 </div>
@@ -102,5 +33,6 @@
         </div>
     </div>
 </section>
+<script src="{% static "createEventMap.bundle.js" %}"></script>
 
 {% endblock %}
