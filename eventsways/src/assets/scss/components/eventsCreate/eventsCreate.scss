@@ -1,0 +1,122 @@
+.event-create-section{
+    background-color: $secondFontColor;
+    padding: 150px 0 125px;
+}
+
+.event-create-inner{
+    display: grid;
+    grid-template-columns: 70% 30%;
+    @media screen and (max-width: 970px) {
+        display: flex;
+        justify-content: center;
+    }
+}
+.form-create-block{
+    background-color: #fff;
+    padding: 30px 0;
+    @media screen and (min-width: $smPhoneWidth) {
+        width: 100%;
+    }
+    @media screen and (min-width:$smTableWidth) {
+        width: 70%;
+    }
+    @media screen and (min-width: 970px) {
+        width: auto;
+    }
+    
+}
+.event-create-events-list{
+    @media screen and (max-width:970px) {
+        display: none;
+    }
+}
+
+.event-create > p {
+    font-family: $roboto;
+    position: relative;
+    margin: 20px 0;
+    width: 500px;
+    @media screen and (max-width: 970px) {
+        width: 100%;
+    }
+    @media screen and (max-width: $smTableWidth) {
+        width: 100%
+    }
+}
+
+.event-create > p > textarea{
+    @media screen and (max-width:370px) {
+        width: 100%;
+    }
+}
+.event-create > p:nth-child(2) > input,
+.event-create > p:nth-child(3) > input,
+.event-create > p:nth-child(5) > input,
+.event-create > p:nth-child(6) > input{
+  width: 100%;
+  height: 30px;
+  font-size: rem(20);
+  border: none;
+  border-bottom: 2px solid #ccc;
+  padding: 10px;
+  position: relative;
+  transition: border-color .2s ease;
+}
+
+.event-create > p:nth-child(2) > input:focus,
+.event-create > p:nth-child(3) > input:focus,
+.event-create > p:nth-child(5) > input:focus,
+.event-create > p:nth-child(6) > input:focus{
+    border-color: $hoverColor;
+}    
+.event-create > p > input:focus{
+    outline: none;
+}
+.event-create > p > input:focus ~ label {
+    color: #ccc;
+}
+
+
+.create-event-btn{
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+}
+.create-event-btn button{
+    outline: none;
+    border: none;
+    background-color: rgb(10, 107, 18);
+    color: #fff;
+    font-family: $openSans;
+    padding: 7px 12px;
+    font-size: rem(20);
+    cursor: pointer;
+    
+    transition: background .3s ease;
+}
+.create-event-btn button:hover{
+    background-color: rgb(4, 82, 11);
+}
+
+.create-event-mapbox{
+    height: 300px;
+    width: 100%;
+    margin-bottom: 40px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.marker{
+    background-image: url("https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png");
+            background-size: cover;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            position: absolute;
+}
+#create-event-map{
+    height: 100%;
+    width: 100%;
+}

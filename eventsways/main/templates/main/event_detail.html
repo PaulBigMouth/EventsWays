@@ -2,15 +2,17 @@
 
 {% block title %}
 
-    {{ event.title }}
+{{ event.title }}
 
 {% endblock %}
 
 {% block content %}
 
-   {{ event.title }}
-   {{ event.body|safe }}
+<section class="section-container">
+    {{ event.title }}
+    {{ event.body|safe }}
 
+</section>
 
 
 {% endblock %}

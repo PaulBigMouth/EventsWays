@@ -1,17 +1,38 @@
 {% extends 'base.html' %}
-
+{% load static %}
 
 
 {% block content %}
+<section class="section-container event-create-section">
+    <div class="container">
+        <div class="event-create-inner">
+            <div class="form-create-block">
+                <div class="container">
+                    <form action='{% url 'event_create_url' %}' method='post' class="event-create">
+                        {% csrf_token %}
 
-<div class="form-create-block" style='margin-top: 150px;'>
-    <form action='{% url 'event_create_url' %}' method='post'>
-        {% csrf_token %}
-       
-        {{ form.as_p }}
+                        {{ form.as_p }}
+                        <div class="create-event-mapbox">
+                            <div id="create-event-map"></div>
+                        </div>
+                        <div class="create-event-btn">
+                            <button type='submit'>Создать событие</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <section class="event-create-events-list">
+                <div class="container">
+                    <div class="event-create-events-list-inner">
+                        <ul class="event-create-ul">
 
-        <button type='submit'>Create Event</button>
-    </form>
-</div>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</section>
+<script src="{% static "createEventMap.bundle.js" %}"></script>
 
 {% endblock %}
