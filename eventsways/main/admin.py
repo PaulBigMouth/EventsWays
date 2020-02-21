@@ -25,7 +25,7 @@ class AddressAdmin(admin.ModelAdmin):
 class EventAdmin(admin.ModelAdmin):
     list_display = ('title', 'body', 'slug', 'events_holding_date', 'events_holding_time', 'get_image', 'category', 'address')
     list_filter = ("events_holding_date",'category')
-    search_fields = ('title', 'body', 'category')
+    search_fields = ('title', 'body', 'category__title')
     save_as = True
     readonly_fields = ('get_image',)
 

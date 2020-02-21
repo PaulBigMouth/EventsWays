@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}
 
 {{ event.title }}
@@ -8,11 +8,70 @@
 
 {% block content %}
 
-<section class="section-container">
-    {{ event.title }}
-    {{ event.body|safe }}
 
+<section class="section-container event-create-section">
+    <div class="container">
+        <div class="event-create-inner">
+            <div class="form-create-block">
+                <div class="container">
+                    <div class="form-create-block-inner">
+                        <div class="form-create-block-inner-up-section">
+                            <div class="form-event-image">
+                                <img src="./img/stock-photo-152707951.jpg" alt="">
+                                <div class="form-event-image-overlay"><i class="fas fa-search-plus fa-2x"></i></div>
+                            </div>
+                            <div class="form-event-up-content">
+                                <h1 class="form-event-title">{{ event.title }}</h1>
+                                <div class="form-event-up-time">
+                                    <p class="event-item-date">
+                                        <i class="far fa-calendar-alt"></i> {{ event.events_holding_date }}
+                                        <i class="far fa-clock"></i> {{ event.events_holding_time }}
+                                    </p>
+                                    <p class="form-event-address">{{ event.address}}
+                                    </p>
+                                </div>
+                                <p class="form-event-category">
+
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-event-description">
+                            <button class="form-event-btn description-btn">Описание <i
+                                    class="fas fa-angle-down"></i></button>
+                            <div class="form-event-description-text">
+                                <div>
+                                    {{ event.body|safe }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-event-map">
+                            <button class="form-event-btn map-btn">Карта <i class="fas fa-angle-down"></i></button>
+                            <div class="form-event-mapbox">
+                                <div id="form-event-map"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section class="event-create-events-list">
+                <div class="container">
+                    <div class="event-create-events-list-inner">
+                        <ul class="event-create-ul">
+
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
 </section>
 
+
+
+
+
+<script src="{% static "eventDetail.bundle.js" %}"></script>
+
+<script src="{% static "eventDetailMap.bundle.js" %}"></script>
 
 {% endblock %}
