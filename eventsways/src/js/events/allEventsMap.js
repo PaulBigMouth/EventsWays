@@ -1,4 +1,5 @@
 
+
 mapboxgl.accessToken =
   "pk.eyJ1IjoicGF1bGJpZ21vdXRoIiwiYSI6ImNrNm83cTc0ZTBzNnMzbGx5YWdlNjFwOWwifQ.5V5xu7ylKhZeABTVBfwEKQ";
 
@@ -19,6 +20,7 @@ let nav = new mapboxgl.NavigationControl({
   showCompass: true,
   showZoom: true
 });
+
 
 
 
@@ -92,6 +94,9 @@ var pulsingDot = {
     return true;
   }
 };
+
+
+
 
 
 

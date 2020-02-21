@@ -99,6 +99,9 @@
   outline: none;
   position: relative;
 }
+.header-form-input > input::-ms-clear{
+  display: none;
+}
 
 .header-list {
   display: flex;
