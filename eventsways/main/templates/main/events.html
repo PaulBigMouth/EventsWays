@@ -20,7 +20,8 @@
           <form action="{% url "events" %}" method="get">
             
             <h3 class="sear-head editContent">Дата</h3>
-              <input type="date" name='filter_date_query' value='{{ event.events_holding_date }}' />
+              <input type="date" name='filter_date_query_start' value='2020-02-23'>
+              <input type="date" name='filter_date_query_end' value='2020-02-23'>
              <h3 class="sear-head editContent">Категории</h3>
 
           <ul>
@@ -33,6 +34,15 @@
 
             {% endfor %}
           </ul>
+
+          <h3 class="sear-head editContent">Страна</h3>
+          <select name = 'filter_county_query' value='{{ address.country }}'>
+          <option>Выбрать..</option>
+            {% for address in addresses %}
+              <option>{{ address.country }}</option>
+            {% endfor %}
+          </select>
+          <br>
           <button type='submit'>Найти</button>
         </form>
 
