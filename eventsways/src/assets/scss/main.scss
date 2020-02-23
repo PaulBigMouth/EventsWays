@@ -11,6 +11,7 @@
 @import "./components/events/events.scss";
 @import "./components/eventsCreate/eventsCreate.scss";
 @import "./components/eventDetail/eventDetail.scss";
+@import "./components/preloader/preloader.scss";
 
 *,
 *:before,
@@ -40,6 +41,7 @@ body {
   padding: 0;
   position: relative;
   overflow: hidden;
+  height: 100vh;
   min-height: 100vh;
 }
 

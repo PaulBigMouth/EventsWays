@@ -1,6 +1,8 @@
 import "./assets/scss/main.scss";
 
 
+
+
 (function Main() {
   const headerInputBlock = document.querySelector(".header-input");
   const headerInput = document.querySelector(".header-input input");
@@ -60,25 +62,20 @@ import "./assets/scss/main.scss";
   // header scroll
 
   const header = document.querySelector(".header");
+  let scroll = window.pageYOffset
   window.addEventListener("scroll", () => {
     if (!flag) {
-      if (window.pageYOffset < 150) {
-        header.style.top = -window.pageYOffset + "px";
+      if (scroll < window.pageYOffset) {
+        header.classList.add('fixed-header');
+      } else if (scroll > window.pageYOffset && header.classList.contains('fixed-header')) {
+        header.classList.remove('fixed-header')
       }
-      if (window.pageYOffset > 830) {
-        header.style.animationName = "header";
-        setTimeout(() => {
-          header.style.top = 0;
-        }, 600);
-      } else if (
-        window.pageYOffset < 830 &&
-        header.style.animationName == "header"
-      ) {
-        header.style.animationName = "reverseHeader";
-        setTimeout(() => {
-          header.style.top = -150 + "px";
-        }, 600);
-      }
+      scroll = window.pageYOffset
     }
   });
+
+  window.addEventListener('load', () => {
+    document.querySelector('.loader-wrapper').style.display = 'none';
+    document.body.style.height = '100%';
+  })
 })();

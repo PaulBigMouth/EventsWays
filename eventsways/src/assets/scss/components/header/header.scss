@@ -1,12 +1,14 @@
 .header {
   width: 100%;
   padding: 15px 0;
-  position: fixed;
   z-index: 10000;
-  top: 0;
-  animation: none 1s ease;
+  position: fixed;
   background-color: #fff;
+  transition: transform .4s ease-in-out;
   box-shadow: 2px 0px 3px rgba(0, 0, 0, 0.2);
+}
+.fixed-header{
+  transform: translateY(-200px);
 }
 .header-nav {
   position: relative;

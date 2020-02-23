@@ -1,11 +1,14 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
 <section id="banner">
+  <img src="{% static "assets/img/intro-bg.jpg" %}" class="banner-img" alt="">
   <div class="container">
     <div class="banner">
       <div class="banner-text">
         <h1>Создавай свои события у нас бесплатно</h1>
       </div>
-      <button class="btn btn-shadow">Подробнее</button>
+      <button class="btn btn-shadow banner-btn">Подробнее</button>
     </div>
   </div>
 </section>

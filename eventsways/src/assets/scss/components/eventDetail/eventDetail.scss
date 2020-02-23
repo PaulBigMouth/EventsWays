@@ -73,7 +73,7 @@
 
 }
 
-.form-event-category > a{
+.form-event-category{
     color: rgb(83, 83, 241);
 }
 
@@ -119,7 +119,7 @@
 }
 #form-event-map{
     width: 100%;
-    height: 100%;
+    height: 300px;
 }
 
 .form-create-block{
@@ -142,29 +142,6 @@
     }
 }
 
-
-
-
-.create-event-mapbox{
-    height: 300px;
-    width: 100%;
-    margin-bottom: 40px;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-}
-
-.marker{
-    background-image: url("https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png");
-            background-size: cover;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            cursor: pointer;
-            position: absolute;
-}
-#create-event-map{
-    height: 100%;
-    width: 100%;
-}
 
 .overlay.open{
     opacity: 1;

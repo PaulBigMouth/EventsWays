@@ -1,5 +1,5 @@
 #banner {
-  padding-bottom: 100px;
+  position: relative;
 }
 
 .banner-img {
@@ -40,7 +40,7 @@
 }
 
 .banner {
-  margin-top: 200px;
+  padding: 200px 0 150px;
   width: 40%;
   font-weight: 700;
   font-family: $roboto;
@@ -51,6 +51,7 @@
 }
 .banner-text h1 {
   font-size: rem(40);
+  color: #fff;
 }
 .banner-text::before,
 .banner-text::after {
@@ -65,4 +66,8 @@
 }
 .banner-text::after {
   margin-top: 10px;
+}
+.banner-btn{
+  color: #fff;
+  border-color: #fff;
 }
