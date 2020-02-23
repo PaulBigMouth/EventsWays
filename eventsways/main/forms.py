@@ -38,8 +38,8 @@ class EventForm(forms.ModelForm):
             'title': forms.TextInput(),
             'slug': forms.TextInput(),
             'body': forms.Textarea(),
-            'events_holding_date': forms.DateInput(),
-            'events_holding_time': forms.TimeInput(),
+            'events_holding_date': forms.DateInput(attrs={'type': 'date'}),
+            'events_holding_time': forms.TimeInput(attrs={'type': 'time'}),
             #'events_image': forms.ImageField(required=False),
             'category': forms.SelectMultiple(),
         }

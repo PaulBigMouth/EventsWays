@@ -9,22 +9,30 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
 
 from django.db.models import Q
-from .filters import EventFilter
+import datetime
 
 def main(request):
     return render(request, 'main/main.html')
 
 
 def events(request):
-
+    
+    filter_date_query = request.GET.get('filter_date_query', '')
+    filter_category_query = request.GET.get('filter_category', '')
     search_query = request.GET.get('search', '')
+    categories = Category.objects.all()
 
-    if search_query:
+    if filter_category_query:
+        events = Event.objects.filter(Q(category_id = filter_category_query))
+    elif search_query:
         events = Event.objects.filter(Q(title__icontains=search_query) | Q(body__icontains=search_query))
+    elif filter_date_query:
+        events = Event.objects.filter(events_holding_date = filter_date_query)
     else:
         events = Event.objects.all()
 
-    paginator = Paginator(events, 4)
+
+    paginator = Paginator(events, 9)
     page_number = request.GET.get('page', 1)
     page = paginator.get_page(page_number)
 
@@ -39,7 +47,7 @@ def events(request):
         next_url = '?page={}'.format(page.next_page_number())
     else:
         next_url = ''
-    
+
 
 
     context = {
@@ -47,9 +55,11 @@ def events(request):
         'is_paginated': is_paginated, 
         'prev_url': prev_url,
         'next_url': next_url,
+        'categories': categories,
         }
 
     return render(request, 'main/events.html', context)
+    
 
 class EventDetail(ObjectDetailMixin, View):
     model = Event
@@ -97,6 +107,7 @@ class CategoryDelete(LoginRequiredMixin,ObjectDeleteMixin,View):
 class CategoryList(ListView):
     model = Category
     queryset = Category.objects.all()
+    
 
 def blog(request):
     return render(request, 'main/blog.html')

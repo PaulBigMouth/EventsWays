@@ -16,6 +16,28 @@
           <button id="map-events-btn" data-flag="2"><i class="fas fa-map-marked-alt"></i></button>
         </div>
       </div>
+<!--Filtering date-->
+          <form action="{% url "events" %}" method="get">
+            
+            <h3 class="sear-head editContent">Дата</h3>
+              <input type="date" name='filter_date_query' value='{{ event.events_holding_date }}' />
+             <h3 class="sear-head editContent">Категории</h3>
+
+          <ul>
+            {% for category in categories %}
+
+            <li>
+              <input type="checkbox" name='filter_category' value='{{ category.id }}'>
+              <span>{{ category.title }}</span>
+            </li>
+
+            {% endfor %}
+          </ul>
+          <button type='submit'>Найти</button>
+        </form>
+
+
+
     </div>
   </aside>
 
@@ -26,7 +48,7 @@
       </div>
       <ul class="main-event-ul all-events-list">
         {% for event in page_object.object_list %}
-        {% include 'main/includes/event_card_template.html' %}
+          {% include 'main/includes/event_card_template.html' %}
         {% endfor %}
       </ul>
       <div class="mapbox mapOff">
