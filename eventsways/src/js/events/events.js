@@ -112,5 +112,3 @@ viewEvents.btn.forEach((elem, index) => {
 
     })
 })
-
-

@@ -1,54 +1,37 @@
-
-
-
-
-let eventDetail = {
-    descriptionFlag: false,
-    mapFlag: false,
-    heightChangeHandler(elem, flag, indexBtn, minHeight, icon, closeClassName = 'fas fa-angle-down', openClassName = 'fas fa-angle-up') {
-        if (!flag) {
-            elem.style.height = minHeight;
-            icon.className = openClassName
-
-        } else {
-            elem.style.height = 0;
-            icon.className = closeClassName
-        }
-        this.changeFlag(indexBtn)
-
-    },
-    changeFlag(index) {
-        if (index) {
-            this.mapFlag = !this.mapFlag
-        } else {
-            this.descriptionFlag = !this.descriptionFlag
-        }
-    }
-}
-
-
-
-let text = document.querySelector('.form-event-description-text div').offsetHeight;
-text = text + 'px'
-
+import EventDetails from "../utilts";
 
 
 const descriptionBtn = document.querySelector('.description-btn')
 const mapBtn = document.querySelector('.map-btn');
+
 const addressLink = document.querySelector('.form-event-address')
 
+let description = new EventDetails(document.querySelector('.form-event-description-text'), false, document.querySelector('.description-btn i'), document.querySelector('.form-event-description-text div'))
+
+
 descriptionBtn.addEventListener('click', () => {
-    eventDetail.heightChangeHandler(document.querySelector('.form-event-description-text'), eventDetail.descriptionFlag, 0, text, document.querySelector('.description-btn i'))
-})
-mapBtn.addEventListener('click', () => {
-    eventDetail.heightChangeHandler(document.querySelector('.form-event-mapbox'), eventDetail.mapFlag, 1, '300px', document.querySelector('.map-btn i'))
+    description.heightChangeHandler()
 })
 
-addressLink.addEventListener('click', () => {
+
+let mapDetails = new EventDetails(document.querySelector('.form-event-mapbox'), false, document.querySelector('.map-btn i'), document.querySelector('#form-event-map'))
+
+mapBtn.addEventListener('click', () => {
+    mapDetails.heightChangeHandler()
+})
+
+
+
+
+
+
+addressLink.addEventListener('click', function () {
     this.preventDefault
-    document.querySelector('.form-event-map').scrollIntoView({ block: "start", behavior: "smooth" })
+    document.querySelector('#form-event-map').scrollIntoView({ block: "start", behavior: "smooth" })
     setTimeout(() => {
-        eventDetail.heightChangeHandler(document.querySelector('.form-event-mapbox'), eventDetail.mapFlag, 1, '300px', document.querySelector('.map-btn i'))
+        if (!mapDetails.isOpen()) {
+            mapDetails.heightChangeHandler()
+        }
     }, 300)
 })
 
