@@ -19,7 +19,7 @@ def events(request):
 
     filter_date_query_start = request.GET.get('filter_date_query_start', '')
     filter_date_query_end = request.GET.get('filter_date_query_end', '')
-    filter_category_query = request.GET.get('filter_category', '')
+    filter_category_query = request.GET.get('filter_category_query', '')
     filter_country_query = request.GET.get('filter_county_query', '')
     search_query = request.GET.get('search', '')
     categories = Category.objects.all()
@@ -27,14 +27,18 @@ def events(request):
     
     if filter_category_query:
         events = Event.objects.filter(Q(category_id = filter_category_query))
-    elif filter_country_query and filter_country_query != "Выбрать..":
+        
+    if filter_country_query and filter_country_query != "Выбрать..":
         events = Event.objects.filter(address__country = filter_country_query)
-    elif search_query:  
-        events = Event.objects.filter(Q(title__icontains=search_query) | Q(body__icontains=search_query))
-    elif filter_date_query_start and filter_date_query_end:
+
+    if filter_date_query_start and filter_date_query_end:
         start_date = filter_date_query_start
         end_date = filter_date_query_end
         events = Event.objects.filter(Q(events_holding_date__gte=start_date, events_holding_date__lte = end_date))
+    
+    if search_query:  
+        events = Event.objects.filter(Q(title__icontains=search_query) | Q(body__icontains=search_query))
+
     else:
         events = Event.objects.all()
 
