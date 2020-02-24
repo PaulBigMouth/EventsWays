@@ -1,0 +1,77 @@
+#overviewOverlay{
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    z-index: 3000000;
+    display: none;
+    
+
+}
+.choiceOverlayEvent{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.0);
+}
+#overviewOverlay.choiceOverlayOpen{
+    display: block;
+}
+
+#overviewOverlay.choiceOverlayOpen.choiceOpen .choiceOverlayEvent{
+    background-color: rgba(0,0,0,0.2);
+}
+#overviewOverlay.choiceOverlayOpen.choiceOpen .choiceOverlayEventWindow{
+    transform: translateX(0)
+}
+.choiceOverlayEventWindow{
+    height: 100vh;  
+    background-color: #fff;
+    overflow: auto;
+    width: 25vw;
+    position: relative;
+    float: right;
+    transform: translateX(600px);
+
+    transition: transform .2s linear;
+    @media screen and (max-width: $smDesktopWidth) {
+        width: 35vw;
+    }
+    @media screen and (max-width: 920px) {
+        width: 45vw;
+    }
+    @media screen and (max-width: $tableWidth) {
+        width: 55vw;
+    }
+    @media screen and (max-width: $phoneWidth) {
+        width: 100vw;
+    }
+
+}
+.choiceCloseIcon{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 15px 20px;
+    cursor: pointer;
+}
+.choiceEventImg {
+    height: 200px;
+    width: 100%;
+}
+
+.choiceEventImg > a {
+    height: 100%;
+    width: 100%;
+}
+.choiceEventImg > a > img {
+    height: 100%;
+    width: 100%;
+}
+.choiceEventContent{
+    padding-left: 0;
+}

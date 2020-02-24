@@ -43,7 +43,7 @@ import "./assets/scss/main.scss";
 
     setTimeout(() => {
       document.querySelector('.loader-wrapper').style.display = 'none';
-      document.body.style.height = '100%';
+      document.body.classList.add('body-post-loader')
     }, 1000)
   })
 })();

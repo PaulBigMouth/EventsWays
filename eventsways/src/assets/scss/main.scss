@@ -12,6 +12,7 @@
 @import "./components/eventsCreate/eventsCreate.scss";
 @import "./components/eventDetail/eventDetail.scss";
 @import "./components/preloader/preloader.scss";
+@import "./components/about/about.scss";
 
 *,
 *:before,
@@ -41,9 +42,13 @@ body {
   padding: 0;
   position: relative;
   overflow: hidden;
+  height: 100vh;
   min-height: 100vh;
+  
 }
-
+.body-post-loader {
+  height: 100%;
+}
 h1,
 h2,
 h3,
@@ -77,6 +82,7 @@ li {
   flex-wrap: wrap;
   align-items: center;
 }
+
 
 #overlay {
   position: absolute;
