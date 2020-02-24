@@ -30,16 +30,7 @@
         <div class="header-logo">
           <a href="{% url 'main' %}">EVENTSWAYS</a>
         </div>
-        <div class="header-item-search">
-          <div class="header-input">
-            <i class="fas fa-search"></i>
-            <form action="" class="header-form-input">
-              {{ filter.form.title }}
-            </form>
-          </div>
 
-
-        </div>
         <ul class="header-list">
           <li class="header-list-item">
             <a href="{% url 'events' %}" class="header-link">События</a>
@@ -50,7 +41,7 @@
           <li class="header-list-item">
             <a href="#" class="header-link">Помощь</a>
           </li>
-          <li><a href="{% url "event_create_url" %}" class="header-btn btn">Создать событие</a></li>
+          <li><button class="header-btn btn"><a href="{% url "event_create_url" %}">Создать событие</a></button></li>
         </ul>
       </div>
 

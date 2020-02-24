@@ -27,7 +27,4 @@ export default class EventDetails {
     heigthFinding() {
         return this.elem2.offsetHeight + 2 + 'px';
     }
-    isOpen() {
-        return this.flag;
-    }
 }

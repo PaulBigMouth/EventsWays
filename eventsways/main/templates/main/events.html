@@ -16,21 +16,45 @@
           <button id="map-events-btn" data-flag="2"><i class="fas fa-map-marked-alt"></i></button>
         </div>
       </div>
-<!--Filtering date-->
-    <form action="" method="get">
-        {{ filter.form.events_holding_date }}
+      <!--Filtering date-->
+      <form action="" method="get" class="filter-form">
+        <div class="container">
+          <div class="filter-date">
+            <h3>Дата</h3>
+            {{ filter.form.events_holding_date }}
+          </div>
+          <div class="filter-category">
+            <h3>Категории</h3>
+            {% for choice in filter.form.category %}
+            {{ choice.tag }} {{ choice.choice_label }}
+            {% endfor %}
+          </div>
 
-        {% for choice in filter.form.category %}
-            {{ choice.tag }}  {{ choice.choice_label }}
-        {% endfor %}
-
-        {{ filter.form.address__country }}
-        <button type="submit">Find</button>
-    </form>
+          <div class="filter-country">
+            <h3>Страна</h3>
+            {{ filter.form.address__country }}
+            <div class="selection">
+              <span class="selected-option" value="">Выберите</span>
+              <div class="selection-icon">
+                <i class="fas fa-angle-down"></i>
+              </div>
+              <div class="options">
+                <ul class="options-ul">
+                  <li>span</li>
+                  <li>hello</li>
+                  <li>check</li>
+                  <li>pss</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="filter-submit-btn">Применить</button>
+        </div>
+      </form>
     </div>
   </aside>
 
- 
+
 
   <section class="allevents">
     <div class="container">
@@ -38,36 +62,36 @@
         <button class="btn btn-shadow">Фильтры</button>
       </div>
       <ul class="main-event-ul all-events-list">
-      {% for object in object_list %}
-            {% include 'main/includes/event_card_template.html' %}
-      {% endfor %}
+        {% for object in object_list %}
+        {% include 'main/includes/event_card_template.html' %}
+        {% endfor %}
       </ul>
-      <div class="mapbox mapOff">
+      <div class="mapbox">
         <div id="map"></div>
       </div>
     </div>
     <!--PAGINATION-->
-{% load my_tags %}
+    {% load my_tags %}
 
-{% if is_paginated %}
-  {% if page_obj.has_previous %}
+    {% if is_paginated %}
+    {% if page_obj.has_previous %}
     <a href="?{% param_replace page=1 %}">First</a>
     {% if page_obj.previous_page_number != 1 %}
-      <a href="?{% param_replace page=page_obj.previous_page_number %}">Previous</a>
+    <a href="?{% param_replace page=page_obj.previous_page_number %}">Previous</a>
     {% endif %}
-  {% endif %}
+    {% endif %}
 
-  Page {{ page_obj.number }} of {{ paginator.num_pages }}
+    Page {{ page_obj.number }} of {{ paginator.num_pages }}
 
-  {% if page_obj.has_next %}
+    {% if page_obj.has_next %}
     {% if page_obj.next_page_number != paginator.num_pages %}
-      <a href="?{% param_replace page=page_obj.next_page_number %}">Next</a>
+    <a href="?{% param_replace page=page_obj.next_page_number %}">Next</a>
     {% endif %}
     <a href="?{% param_replace page=paginator.num_pages %}">Last</a>
-  {% endif %}
+    {% endif %}
 
-  <p>Objects {{ page_obj.start_index }}—{{ page_obj.end_index }}</p>
-{% endif %}
+    <p>Objects {{ page_obj.start_index }}—{{ page_obj.end_index }}</p>
+    {% endif %}
 
 
 

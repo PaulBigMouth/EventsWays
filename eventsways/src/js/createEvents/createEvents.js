@@ -1,17 +1,10 @@
-
+import createMap from "../map/createMap";
 mapboxgl.accessToken =
     "pk.eyJ1IjoicGF1bGJpZ21vdXRoIiwiYSI6ImNrNm83cTc0ZTBzNnMzbGx5YWdlNjFwOWwifQ.5V5xu7ylKhZeABTVBfwEKQ";
 
 
-let map = new mapboxgl.Map({
-    container: "create-event-map",
-    style: "mapbox://styles/mapbox/streets-v9",
-    zoom: 5,
-    center: [27.586669921875, 53.93021986394],
-    pitch: 45,
-    bearing: 17.6,
-    trackResize: true
-})
+let map = createMap('create-event-map', 5, [27.586669921875, 53.93021986394])
+
 
 let nav = new mapboxgl.NavigationControl({
     showCompass: true,
@@ -27,13 +20,15 @@ let geojson = {
     ]
 }
 
+const lngInput = document.querySelector('.lngInput');
+const latInput = document.querySelector('.latInput');
 
 
 map.on('click', (e) => {
     if (document.querySelectorAll('.marker').length) {
         document.querySelector('.marker').remove()
     }
-    console.log(e.lngLat.toArray())
+
     const geojson = {
         type: "FeatureCollection",
         features: [
@@ -49,12 +44,20 @@ map.on('click', (e) => {
             }
         ]
     }
+
     //const input = document.querySelector('input');
     //input.value = e.lngLat.toArray()[0]
+
+
+
+
     var el = document.createElement("div");
     el.className = "marker";
 
     new mapboxgl.Marker(el)
         .setLngLat(e.lngLat.toArray())
         .addTo(map)
+    lngInput.value = e.lngLat.toArray()[0];
+    latInput.value = e.lngLat.toArray()[1];
+    console.log(lngInput.value, latInput.value)
 })

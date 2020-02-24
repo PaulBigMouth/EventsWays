@@ -14,18 +14,11 @@
   position: relative;
 }
 .nav-menu {
-  display: grid;
-  grid-template-columns: 20% 30% 45%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   position: relative;
   max-height: 42px;
-  overflow: hidden;
-  @media screen and (max-width: $smDesktopWidth) {
-    grid-template-columns: 30% 60%;
-    overflow: visible;
-  }
-  @media screen and (max-width: $tableWidth) {
-    grid-template-columns: 40% 50%;
-  }
 }
 
 .toggle-menu {
@@ -37,7 +30,7 @@
   z-index: 9;
   justify-content: flex-end;
   align-items: center;
-  @media screen and (max-width: $smDesktopWidth) {
+  @media screen and (max-width: 750px) {
     display: flex;
   }
 }
@@ -105,14 +98,16 @@
   display: none;
 }
 
+
 .header-list {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   overflow: hidden;
-  @media screen and (max-width: $smDesktopWidth) {
+  transition: all .2s ease-in-out;
+  @media screen and (max-width: 750px) {
     position: absolute;
-    top: 101%;
+    top: 130%;
     width: 100%;
     height: 0;
     background-color: rgb(250, 250, 250);
@@ -121,15 +116,16 @@
     flex-direction: column;
     justify-content: center;
   }
-  @media screen and (max-width: $smTableWidth) {
-    top: 231%;
+}
+.openMenu{
+  @media screen and (max-width: 750px) {
+    height: 195px;
   }
 }
-
 .header-list-item {
   margin: 0 20px;
   position: relative;
-  @media screen and (max-width: $smDesktopWidth) {
+  @media screen and (max-width: 750px) {
     padding: 10px 0;
     width: 100%;
     margin: 0;
@@ -140,7 +136,8 @@
 }
 .header-list li:last-of-type {
   margin-left: 45px;
-  @media screen and (max-width: $smDesktopWidth) {
+  margin-right: 20px;
+  @media screen and (max-width: 750px) {
     margin-left: 0;
     margin-top: 10px;
     width: 100%;
@@ -181,7 +178,7 @@
 }
 
 .header-list > li > .btn {
-  @media screen and (max-width: $smDesktopWidth) {
+  @media screen and (max-width: 750px) {
     padding: 10px 20%;
   }
 }

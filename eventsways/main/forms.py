@@ -41,6 +41,8 @@ class EventForm(forms.ModelForm):
             'body': forms.Textarea(),
             'events_holding_date': forms.DateInput(attrs={'type': 'date'}),
             'events_holding_time': forms.TimeInput(attrs={'type': 'time'}),
+            'lng': forms.TextInput(attrs={'class': 'lngInput'}),
+            'lat': forms.TextInput(attrs={'class': 'latInput'}),
         }
 
     def clean_slug(self):

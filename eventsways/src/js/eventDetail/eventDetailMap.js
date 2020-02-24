@@ -6,8 +6,9 @@ mapboxgl.accessToken =
 
 import createMap from "../map/createMap";
 
-
-let map = createMap('form-event-map', 13, [-77.032, 38.913])
+const elem = document.querySelector('.form-create-block')
+const marker = [+elem.getAttribute('data-lng'), +elem.getAttribute('data-lat')];
+let map = createMap('form-event-map', 13, marker)
 
 
 
@@ -23,6 +24,7 @@ map.addControl(nav, "bottom-right");
 
 import pulsingMarker from "../map/marker";
 
+
 map.on('load', () => {
     map.addSource('points', {
         'type': 'geojson',
@@ -33,7 +35,7 @@ map.on('load', () => {
                     'type': 'Feature',
                     'geometry': {
                         'type': 'Point',
-                        'coordinates': [-77.032, 38.913]
+                        'coordinates': marker
                     }
                 }
             ]
