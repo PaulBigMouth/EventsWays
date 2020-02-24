@@ -7,11 +7,10 @@ from django.forms.widgets import ChoiceWidget, Select
 class EventFilter(django_filters.FilterSet):
     events_holding_date = django_filters.DateFromToRangeFilter(widget=RangeWidget(attrs={'type': 'date','placeholder': 'YYYY/MM/DD',}))
     category = django_filters.ModelMultipleChoiceFilter(queryset=Category.objects.all(),widget = forms.CheckboxSelectMultiple)
-    address__country = django_filters.ChoiceFilter(choices=[(country, country) for country in Address.objects.all().values_list('country', flat=True).distinct()])
-
+    #address__country = django_filters.ChoiceFilter(choices=[(country, country) for country in Address.objects.all().values_list('country', flat=True).distinct()])
     class Meta:
         model = Event
         fields = ['events_holding_date', 'category', 'address__country']
-        widgets = {
-              'address__country': Select(attrs={'type': 'combobox'}),
-          }
+"""        widgets = {
+              'address__country': ChoiceWidget(attrs={'type': 'text'}), 
+          }"""
