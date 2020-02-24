@@ -1,0 +1,135 @@
+@import "./aboutOverlay.scss";
+
+.overview-banner{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    @media screen and(max-width:$smTableWidth) {
+        height: 80vh;
+    }
+    @media screen and(max-width:$phoneWidth) {
+        height: 70vh;
+    }
+    @media screen and(max-width: 420px) {
+        height: 60vh;
+    }
+    
+   
+}
+.advantage-ul{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding: 30px 0;
+    @media screen and (max-width: 550px) {
+        grid-template-columns: 100%;
+    }
+}
+.advantage-list{
+    margin: 15px 10px;
+    transition: background .2s linear;
+}
+
+.overview-banner-img {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top:0;
+    left: 0;
+    
+   
+}
+.overview-banner-inner{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: $openSans;
+    color: #fff;
+    font-size: rem(40);
+    position: relative;
+    z-index: 3;
+}
+
+.advantage-inner{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    @media screen and (max-width:$tableWidth) {
+        grid-template-columns: 100%;
+    }
+}
+
+.advantage-img{
+    overflow: hidden;
+    height: 100%;
+}
+.advantage-img > img {
+  transform: translateX(-200px);
+  height: 100%;
+  @media screen and (max-width:$tableWidth) {
+      width: 100%;
+      transform: translateX(0);
+  }
+}
+
+.advantage-list-item{
+    text-align: center;
+    transition: color .2s linear;
+}
+
+.advantage-list:hover{
+    background-color: $hoverColor;
+}
+.advantage-list:hover .advantage-list-item{
+    color: #fff
+}
+.advantage-list:hover .advantage-item-content-inner > p{
+    color: #fff;
+}
+.advantage-item-icon{
+    padding: 10px 0;
+}
+.advantage-content{
+    padding: 30px 0;
+}
+.advantage-title{
+    text-align: center;
+    font-weight: 700;
+    font-size: rem(36);
+    letter-spacing: 2px;
+}
+.advantage-item-content-inner > p{
+    color: #555;
+    transition: color .2s linear;
+ }
+
+.choiceEvent{
+    height: calc(600px - 5vh);
+    width: 100vw;
+    position: relative;
+    @media screen and (max-width: $tableWidth) {
+        height: calc(500px - 20vh);
+    }
+}
+
+.choiceButton{
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.choiceButton > button {
+    background: #d1410c;
+    outline: none;
+    color: #fff;
+    font-family: $roboto;
+    font-weight: 700;
+    font-size: rem(24);
+    border: none;
+    padding: 7px 10px;
+    cursor: pointer;
+}
+
