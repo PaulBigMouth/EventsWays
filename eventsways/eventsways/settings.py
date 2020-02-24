@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'main',
     'ckeditor',
     'ckeditor_uploader',
+    'django_filters',
 
 ]
 

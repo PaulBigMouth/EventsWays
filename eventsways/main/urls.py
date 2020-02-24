@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-
+from django_filters.views import object_filter
 from .views import *
 
 urlpatterns = [

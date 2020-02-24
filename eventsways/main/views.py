@@ -2,9 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import View, ListView, DetailView
 from .models import *
 from .forms import *
-
+from .filters import *
 from .utils import *
-
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
 
@@ -17,13 +16,10 @@ def main(request):
 
 def events(request):
 
-    filter_date_query_start = request.GET.get('filter_date_query_start', '')
+    """filter_date_query_start = request.GET.get('filter_date_query_start', '')
     filter_date_query_end = request.GET.get('filter_date_query_end', '')
     filter_category_query = request.GET.get('filter_category_query', '')
     filter_country_query = request.GET.get('filter_county_query', '')
-    search_query = request.GET.get('search', '')
-    categories = Category.objects.all()
-    addresses = Address.objects.all().values('country').distinct()
     
     if filter_category_query:
         events = Event.objects.filter(Q(category_id = filter_category_query))
@@ -34,14 +30,20 @@ def events(request):
     if filter_date_query_start and filter_date_query_end:
         start_date = filter_date_query_start
         end_date = filter_date_query_end
-        events = Event.objects.filter(Q(events_holding_date__gte=start_date, events_holding_date__lte = end_date))
+        events = Event.objects.filter(Q(events_holding_date__gte=start_date, events_holding_date__lte = end_date))"""
     
+    search_query = request.GET.get('search', '')
+    categories = Category.objects.all()
+    addresses = Address.objects.all().values('country').distinct()
+
     if search_query:  
         events = Event.objects.filter(Q(title__icontains=search_query) | Q(body__icontains=search_query))
 
     else:
         events = Event.objects.all()
 
+
+    f = EventFilter(request.GET, queryset=Event.objects.all())
 
     paginator = Paginator(events, 9)
     page_number = request.GET.get('page', 1)
@@ -59,8 +61,6 @@ def events(request):
     else:
         next_url = ''
 
-
-
     context = {
         'page_object': page, 
         'is_paginated': is_paginated, 
@@ -68,6 +68,7 @@ def events(request):
         'next_url': next_url,
         'categories': categories,
         'addresses': addresses,
+        'filter': f,
         }
 
     return render(request, 'main/events.html', context)

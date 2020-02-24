@@ -17,39 +17,19 @@
         </div>
       </div>
 <!--Filtering date-->
-          <form action="{% url "events" %}" method="get">
-            
-            <h3 class="sear-head editContent">Дата</h3>
-              <input type="date" name='filter_date_query_start' value='2020-02-23'>
-              <input type="date" name='filter_date_query_end' value='2020-02-23'>
-             <h3 class="sear-head editContent">Категории</h3>
+    <form action="" method="get">
+        {{ filter.form.events_holding_date }}
 
-          <ul>
-            {% for category in categories %}
+        {% for choice in filter.form.category %}
+            {{ choice.tag }}  {{ choice.choice_label }}
+        {% endfor %}
 
-            <li>
-              <input type="checkbox" name='filter_category_query' value='{{ category.id }}'>
-              <span>{{ category.title }}</span>
-            </li>
-
-            {% endfor %}
-          </ul>
-
-          <h3 class="sear-head editContent">Страна</h3>
-          <select name = 'filter_county_query' value='{{ address.country }}'>
-          <option>Выбрать..</option>
-            {% for address in addresses %}
-              <option>{{ address.country }}</option>
-            {% endfor %}
-          </select>
-          <br>
-          <button type='submit'>Найти</button>
-        </form>
-
-
-
+        <button type="submit">Find</button>
+    </form>
     </div>
   </aside>
+
+ 
 
   <section class="allevents">
     <div class="container">
@@ -57,9 +37,9 @@
         <button class="btn btn-shadow">Фильтры</button>
       </div>
       <ul class="main-event-ul all-events-list">
-        {% for event in page_object.object_list %}
+    {% for event in filter.qs %}
           {% include 'main/includes/event_card_template.html' %}
-        {% endfor %}
+    {% endfor %}
       </ul>
       <div class="mapbox mapOff">
         <div id="map"></div>
