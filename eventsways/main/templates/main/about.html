@@ -1,7 +1,176 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
 
-    <h1>Poc</h1>
+<section class="overview-banner">
+    <img src="{% static "assets/img/overviewBanner.gif" %}" class="overview-banner-img" alt="">
+    <div class="overview-banner-inner">
+        <h1>EVENTSWAYS</h1>
+    </div>
+</section>
+
+<section class="advantage">
+    <div class="advantage-inner">
+        <div class="advantage-content">
+            <div class="container">
+                <div class="advantage-content-inner">
+                    <h2 class="advantage-title">НАШИ ПЛЮСЫ</h2>
+                    <ul class="advantage-ul">
+                        <li class="advantage-list">
+                            <section class="advantage-list-item">
+                                <div class="advantage-item-icon">
+                                    <i class="fas fa-sliders-h fa-2x"></i>
+                                </div>
+                                <div class="advantage-item-content">
+                                    <div class="container">
+                                        <div class="advantage-item-content-inner">
+                                            <h3>Категории на любой вкус</h3>
+                                            <p>Создавай категории сам</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </li>
+                        <li class="advantage-list">
+                            <section class="advantage-list-item">
+                                <div class="advantage-item-icon">
+                                    <i class="fas fa-sliders-h fa-2x"></i>
+                                </div>
+                                <div class="advantage-item-content">
+                                    <div class="container">
+                                        <div class="advantage-item-content-inner">
+                                            <h3>Категории на любой вкус</h3>
+                                            <p>Создавай категории сам</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </li>
+                        <li class="advantage-list">
+                            <section class="advantage-list-item">
+                                <div class="advantage-item-icon">
+                                    <i class="fas fa-sliders-h fa-2x"></i>
+                                </div>
+                                <div class="advantage-item-content">
+                                    <div class="container">
+                                        <div class="advantage-item-content-inner">
+                                            <h3>Категории на любой вкус</h3>
+                                            <p>Создавай категории сам</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </li>
+                        <li class="advantage-list">
+                            <section class="advantage-list-item">
+                                <div class="advantage-item-icon">
+                                    <i class="fas fa-sliders-h fa-2x"></i>
+                                </div>
+                                <div class="advantage-item-content">
+                                    <div class="container">
+                                        <div class="advantage-item-content-inner">
+                                            <h3>Категории на любой вкус</h3>
+                                            <p>Создавай категории сам</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </li>
+                        <li class="advantage-list">
+                            <section class="advantage-list-item">
+                                <div class="advantage-item-icon">
+                                    <i class="fas fa-sliders-h fa-2x"></i>
+                                </div>
+                                <div class="advantage-item-content">
+                                    <div class="container">
+                                        <div class="advantage-item-content-inner">
+                                            <h3>Категории на любой вкус</h3>
+                                            <p>Создавай категории сам</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </li>
+                        <li class="advantage-list">
+                            <section class="advantage-list-item">
+                                <div class="advantage-item-icon">
+                                    <i class="fas fa-sliders-h fa-2x"></i>
+                                </div>
+                                <div class="advantage-item-content">
+                                    <div class="container">
+                                        <div class="advantage-item-content-inner">
+                                            <h3>Категории на любой вкус</h3>
+                                            <p>Создавай категории сам</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="advantage-img">
+            <img src="{% static "assets/img/overview-img1.jpg" %}" alt="">
+        </div>
+    </div>
+</section>
+
+<section class="choiceEvent">
+
+    <div class="choiceButton">
+        <button>Случайное событие</button>
+    </div>
+</section>
+<div id="overviewOverlay">
+    <section class="choiceOverlayEvent">
+    </section>
+    <section class="choiceOverlayEventWindow">
+        <section class="choiceEventItem">
+            <div class="choiceCloseIcon">
+                <i class="far fa-window-close fa-lg"></i>
+            </div>
+            <div class=" choiceEventImg">
+                <a href="#">
+                    <img src="./img/gallery-image-2.jpg" alt="">
+                </a>
+            </div>
+            <div class="container">
+                <div class="form-event-up-content choiceEventContent">
+                    <h2 class="form-event-title">Праздние епиа</h3>
+                        <div class="form-event-up-time">
+                            <p class="event-item-date">
+                                <i class="far fa-calendar-alt"></i> 31 февраля 2033
+                                <i class="far fa-clock"></i> 00:00
+                            </p>
+                            <p class="form-event-address"><i class="fas fa-map-marker-alt"></i> ул.Гагарина 41а, Минск,
+                                Шарага
+                            </p>
+                        </div>
+                        <p class="form-event-category">
+                            #жизнь
+                        </p>
+                </div>
+            </div>
+            <div class="form-event-description">
+                <button class="form-event-btn description-btn overview-btn-description">Описание <i
+                        class="fas fa-angle-down"></i></button>
+                <div class="form-event-description-text">
+                    <div>
+                        афвафаыа афыаыфа
+                    </div>
+                </div>
+            </div>
+            <div class="form-event-map">
+                <button class="form-event-btn map-btn">Карта <i class="fas fa-angle-down"></i></button>
+                <div class="form-event-mapbox">
+                    <div id="form-event-map"></div>
+                </div>
+            </div>
+        </section>
+    </section>
+</div>
+<script src="{% static "about.bundle.js" %}"></script>
+<script src="{% static "aboutMap.bundle.js" %}"></script>
 
 {% endblock  %}
