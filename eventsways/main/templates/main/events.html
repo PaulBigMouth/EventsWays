@@ -38,44 +38,38 @@
         <button class="btn btn-shadow">Фильтры</button>
       </div>
       <ul class="main-event-ul all-events-list">
-    {% for event in filter.qs %}
-          {% include 'main/includes/event_card_template.html' %}
-    {% endfor %}
+      {% for object in object_list %}
+            {% include 'main/includes/event_card_template.html' %}
+      {% endfor %}
       </ul>
       <div class="mapbox mapOff">
         <div id="map"></div>
       </div>
     </div>
-
     <!--PAGINATION-->
+{% load my_tags %}
 
-    {% if is_paginated %}
-
-    <nav aria-label="..." class="pagination-nav">
-      <ul class="pagination flex-row">
-        <li class="page-item {% if not prev_url %} disabled {% endif %}">
-          <a class="page-link" href="{{ prev_url }}" tabindex="-1" aria-disabled="true">Пред</a>
-        </li>
-
-        {% for n in page_object.paginator.page_range %}
-
-        {% if page_object.number == n %}
-        <!-- Activ page -->
-        <li class="page-item"><a class="page-link page-active" href="?page={{ n }}">{{ n }}</a></li>
-        {% elif n > page_object.number|add:-3 and n < page_object.number|add:3 %}
-
-        <li class="page-item"><a class="page-link" href="?page={{ n }}">{{ n }}</a></li>
-
-        {% endif %}
-
-        {% endfor %}
-
-        <li class="page-item {% if not next_url %} disabled {% endif %}">
-          <a class="page-link" href="{{ next_url }}">След</a>
-        </li>
-      </ul>
-    </nav>
+{% if is_paginated %}
+  {% if page_obj.has_previous %}
+    <a href="?{% param_replace page=1 %}">First</a>
+    {% if page_obj.previous_page_number != 1 %}
+      <a href="?{% param_replace page=page_obj.previous_page_number %}">Previous</a>
     {% endif %}
+  {% endif %}
+
+  Page {{ page_obj.number }} of {{ paginator.num_pages }}
+
+  {% if page_obj.has_next %}
+    {% if page_obj.next_page_number != paginator.num_pages %}
+      <a href="?{% param_replace page=page_obj.next_page_number %}">Next</a>
+    {% endif %}
+    <a href="?{% param_replace page=paginator.num_pages %}">Last</a>
+  {% endif %}
+
+  <p>Objects {{ page_obj.start_index }}—{{ page_obj.end_index }}</p>
+{% endif %}
+
+
 
   </section>
 </section>

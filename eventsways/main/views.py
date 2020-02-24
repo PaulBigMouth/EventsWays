@@ -6,7 +6,7 @@ from .filters import *
 from .utils import *
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
-
+from django_filters.views import FilterView
 from django.db.models import Q
 import datetime
 
@@ -14,65 +14,28 @@ def main(request):
     return render(request, 'main/main.html')
 
 
-def events(request):
+class EventListView(FilterView):
+    model = Event
+    template_name = 'main/events.html'
+    filterset_class = EventFilter
+    paginate_by = 9
 
-    """filter_date_query_start = request.GET.get('filter_date_query_start', '')
-    filter_date_query_end = request.GET.get('filter_date_query_end', '')
-    filter_category_query = request.GET.get('filter_category_query', '')
-    filter_country_query = request.GET.get('filter_county_query', '')
+    def get_queryset(self):
+        # Get the queryset however you usually would.  For example:
+        queryset = super().get_queryset()
+        # Then use the query parameters and the queryset to
+        # instantiate a filterset and save it as an attribute
+        # on the view instance for later.
+        self.filterset = self.filterset_class(self.request.GET, queryset=queryset)
+        # Return the filtered queryset
+        return self.filterset.qs.distinct()
     
-    if filter_category_query:
-        events = Event.objects.filter(Q(category_id = filter_category_query))
-        
-    if filter_country_query and filter_country_query != "Выбрать..":
-        events = Event.objects.filter(address__country = filter_country_query)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Pass the filterset to the template - it provides the form.
+        context['filterset'] = self.filterset
+        return context
 
-    if filter_date_query_start and filter_date_query_end:
-        start_date = filter_date_query_start
-        end_date = filter_date_query_end
-        events = Event.objects.filter(Q(events_holding_date__gte=start_date, events_holding_date__lte = end_date))"""
-    
-    search_query = request.GET.get('search', '')
-    categories = Category.objects.all()
-    addresses = Address.objects.all().values('country').distinct()
-
-    if search_query:  
-        events = Event.objects.filter(Q(title__icontains=search_query) | Q(body__icontains=search_query))
-
-    else:
-        events = Event.objects.all()
-
-
-    f = EventFilter(request.GET, queryset=Event.objects.all())
-
-    paginator = Paginator(events, 9)
-    page_number = request.GET.get('page', 1)
-    page = paginator.get_page(page_number)
-
-    is_paginated = page.has_other_pages()
-
-    if page.has_previous():
-        prev_url = '?page={}'.format(page.previous_page_number())
-    else:
-        prev_url = ''
-
-    if page.has_next():
-        next_url = '?page={}'.format(page.next_page_number())
-    else:
-        next_url = ''
-
-    context = {
-        'page_object': page, 
-        'is_paginated': is_paginated, 
-        'prev_url': prev_url,
-        'next_url': next_url,
-        'categories': categories,
-        'addresses': addresses,
-        'filter': f,
-        }
-
-    return render(request, 'main/events.html', context)
-    
 
 class EventDetail(ObjectDetailMixin, View):
     model = Event
