@@ -1,4 +1,4 @@
-
+import EventDetails from "../utilts";
 import ViewEvents from "./viewEvents"
 
 const eventsFilters = document.querySelector(".filters");
@@ -6,6 +6,8 @@ const eventsFiltersInner = document.querySelector(".filters-inner");
 const html = document.querySelector('html');
 
 const eventsFiltersBtn = document.querySelector(".events-filters-btn button");
+
+
 
 const filterObject = {
     flag: false,
@@ -80,3 +82,23 @@ if (sessionStorage.getItem('btnflag')) {
     viewEvents.changeViewHandler(false)
 }
 
+
+
+const select = document.querySelector('.selection');
+const options = document.querySelector('.options')
+const optionsUl = document.querySelector('.options-ul')
+const option = document.querySelectorAll('.options-ul li');
+
+const selection = new EventDetails(options, false, document.querySelector('.selection-icon i'), optionsUl)
+
+option.forEach((elem) => {
+    elem.addEventListener('click', function () {
+
+        let name = this.innerHTML;
+        document.querySelector('.selected-option').innerHTML = name;
+        console.log(selection.flag)
+    })
+})
+select.addEventListener('click', () => {
+    selection.heightChangeHandler()
+})

@@ -2,7 +2,7 @@
   <section class="event-item" data-title="{{ object.title }}" data-date="{{ object.events_holding_date }}"
     data-time="{{ object.events_holding_time }}" data-place="REPUBLICK | Минск" data-description="Lorem Ipsum является текст-заполнитель обычно используется в
     графических," data-href="{{ object.get_absolute_url }}" data-image="{{ MEDIA_URL}}{{ object.events_image }}"
-    data-lat="37.913" data-lng="-77.032">
+    data-lat="{{ object.lat }}" data-lng="{{ object.lng }}">
     <div class="event-img">
       <a href="{{ object.get_absolute_url }}" class="event-link-img">
         <img src="{{ MEDIA_URL}}{{ object.events_image }}" alt="" />

@@ -75,8 +75,10 @@
 .event-create > p > input:focus ~ label {
     color: #ccc;
 }
-
-
+.event-create > p:nth-child(10),
+.event-create > p:nth-child(11){
+    display: none;
+}
 .create-event-btn{
     margin-top: 10px;
     display: flex;
