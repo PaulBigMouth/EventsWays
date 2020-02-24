@@ -11,7 +11,11 @@ from django.db.models import Q
 import datetime
 
 def main(request):
-    return render(request, 'main/main.html')
+    top_events = Event.objects.all()[:8]
+    context = {
+        'top_events': top_events,
+    }
+    return render(request, 'main/main.html', context)
 
 
 class EventListView(FilterView):

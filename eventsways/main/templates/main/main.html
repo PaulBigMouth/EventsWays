@@ -17,8 +17,9 @@
   <h2 class="main-events-title">Свежие события</h2>
   <div class="container">
     <ul class="main-event-ul main-list">
-      {% for event in events %}
-      {% include 'main/includes/event_card_template.html' %} {% endfor %}
+      {% for object in top_events %}
+        {% include 'main/includes/event_card_template.html' %} 
+      {% endfor %}
     </ul>
   </div>
 </section>
