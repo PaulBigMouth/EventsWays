@@ -3,4 +3,4 @@ from django.shortcuts import redirect
 
 
 def redirect_events(request):
-    return redirect('events', permanent=True)
+    return redirect('main', permanent=True)

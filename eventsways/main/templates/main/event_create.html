@@ -12,7 +12,7 @@
                         {% csrf_token %}
 
                         {{ form.as_p }}
-                        
+
                         <div class="create-event-mapbox">
                             <div id="create-event-map"></div>
                         </div>
@@ -26,7 +26,9 @@
                 <div class="container">
                     <div class="event-create-events-list-inner">
                         <ul class="event-create-ul">
-
+                            {% for object in random_events %}
+                                {% include 'main/includes/event_card_template.html' %}
+                            {% endfor %}
                         </ul>
                     </div>
                 </div>

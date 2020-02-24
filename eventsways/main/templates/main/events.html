@@ -40,10 +40,9 @@
               </div>
               <div class="options">
                 <ul class="options-ul">
-                  <li>span</li>
-                  <li>hello</li>
-                  <li>check</li>
-                  <li>pss</li>
+                  {% for country in countries %}
+                  <li>{{ country }}</li>
+                  {% endfor %}
                 </ul>
               </div>
             </div>
