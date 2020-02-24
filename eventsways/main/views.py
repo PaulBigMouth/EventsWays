@@ -36,6 +36,7 @@ class EventListView(FilterView):
         context['filterset'] = self.filterset
         return context
 
+
 class EventDetail(ObjectDetailMixin, View):
     model = Event
     template = 'main/event_detail.html'

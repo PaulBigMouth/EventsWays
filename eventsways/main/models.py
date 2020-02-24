@@ -34,7 +34,9 @@ class Event(models.Model):
 
     category = models.ForeignKey("Category", blank = True, related_name='events', on_delete=models.CASCADE)
 
-    location = models.CharField(max_length=50)
+    lng = models.CharField(max_length=50, blank=True)
+
+    lat = models.CharField(max_length=50, blank=True)
 
     address = models.ForeignKey("Address", blank=True, on_delete=models.CASCADE, related_name='events')
 
@@ -49,11 +51,10 @@ class Event(models.Model):
     def get_absolute_url(self):
         return reverse("event_detail_url", kwargs={"slug": self.slug})
 
-    def get_update_url(self):
-        return reverse('event_update_url', kwargs={'slug': self.slug })
-
-    def get_delete_url(self):
-        return reverse('event_delete_url', kwargs={'slug': self.slug })
+    def getImage(self):
+        if not self.image:
+            # depending on your template
+            return default_path or default_image_object
 
     class Meta:
         verbose_name = 'Событие'

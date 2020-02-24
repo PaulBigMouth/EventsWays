@@ -2,6 +2,7 @@ from django import forms
 from .models import Category, Event, Address
 from django.core.exceptions import ValidationError
 
+
 class AddressForm(forms.ModelForm):
     class Meta:
         model = Address
@@ -32,7 +33,7 @@ class CategoryForm(forms.ModelForm):
 class EventForm(forms.ModelForm):
     class Meta:
         model = Event
-        fields = ['title', 'slug', 'body', 'events_holding_date', 'events_holding_time', 'events_image','category']
+        fields = ['title', 'slug', 'body', 'events_holding_date', 'events_holding_time', 'events_image','category', 'address', 'lng', 'lat']
 
         widgets = {
             'title': forms.TextInput(),
@@ -40,8 +41,6 @@ class EventForm(forms.ModelForm):
             'body': forms.Textarea(),
             'events_holding_date': forms.DateInput(attrs={'type': 'date'}),
             'events_holding_time': forms.TimeInput(attrs={'type': 'time'}),
-            #'events_image': forms.ImageField(required=False),
-            'category': forms.SelectMultiple(),
         }
 
     def clean_slug(self):
