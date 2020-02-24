@@ -22,7 +22,7 @@ class EventListView(FilterView):
 
     def get_queryset(self):
         # Get the queryset however you usually would.  For example:
-        queryset = super().get_queryset()
+        queryset = Event.objects.filter(checked=True)
         # Then use the query parameters and the queryset to
         # instantiate a filterset and save it as an attribute
         # on the view instance for later.

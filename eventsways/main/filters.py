@@ -11,7 +11,7 @@ class EventFilter(django_filters.FilterSet):
     title = django_filters.CharFilter(lookup_expr='icontains')
     class Meta:
         model = Event
-        fields = ['title','events_holding_date', 'category', 'address__country']
+        fields = ['title','events_holding_date', 'category', 'address__country',]
 """        widgets = {
               'address__country': ChoiceWidget(attrs={'type': 'text'}), 
           }"""

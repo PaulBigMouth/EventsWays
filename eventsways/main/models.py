@@ -40,6 +40,8 @@ class Event(models.Model):
 
     address = models.ForeignKey("Address", blank=True, on_delete=models.CASCADE, related_name='events')
 
+    checked = models.BooleanField("Проверено", default=False)
+
     def __str__(self):
         return '{}'.format(self.title)
 
