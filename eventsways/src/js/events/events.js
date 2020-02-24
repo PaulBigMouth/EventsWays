@@ -1,4 +1,6 @@
 
+import ViewEvents from "./viewEvents"
+
 const eventsFilters = document.querySelector(".filters");
 const eventsFiltersInner = document.querySelector(".filters-inner");
 const html = document.querySelector('html');
@@ -47,68 +49,34 @@ const eventItemImage = document.querySelectorAll('.event-img')
 const mapBlock = document.querySelector('.mapbox');
 
 
-const viewEvents = {
 
-    btn: [document.querySelector('#grid-events-btn'), document.querySelector('#list-events-btn'), document.querySelector('#map-events-btn')]
 
-}
-viewEvents.btn.forEach((elem, index) => {
-    elem.addEventListener('click', () => {
-        const flag = +elem.getAttribute('data-flag');
-        elem.disabled = true;
-        elem.className = 'active-btn';
+const viewEventsBtn = [document.querySelector('#grid-events-btn'), document.querySelector('#list-events-btn'), document.querySelector('#map-events-btn')]
 
-        viewEvents.btn.map((elem, index) => {
-            if (index !== flag) {
-                elem.disabled = false;
-                elem.className = ''
-            }
-        })
-        if (flag === 2) {
-            mapBlock.classList.add('mapActive');
-            mapBlock.classList.remove('mapOff');
-            mainEventsUl.style.display = 'none';
+const classes = [
+    {
+        name: 'default',
+        ulClass: 'all-events-list'
+    },
+    {
+        name: 'grid',
+        ulClass: 'list-events-list',
+        classes: ['event-item__list', 'event-item-title--list', 'event-item-description__list', 'event-img__list']
+    },
+    {
+        name: 'map',
+        classes: 'mapActive'
+    }
+]
 
-        } else {
-            mapBlock.classList.remove('mapActive');
-            mapBlock.classList.add('mapOff')
-            mainEventsUl.style.display = "grid"
-        }
-
-        if (flag === 0) {
-            mainEventsUl.classList.add('all-events-list');
-            mainEventsUl.classList.remove('list-events-list');
-            eventItem.forEach((elem) => {
-                elem.classList.remove('event-item__list')
-            })
-            eventItemTitle.forEach((elem) => {
-                elem.classList.remove('event-item-title--list')
-            })
-            eventItemDescription.forEach((elem) => {
-                elem.classList.remove('event-item-description__list')
-
-            })
-            eventItemImage.forEach((elem) => {
-                elem.classList.remove('event-img__list')
-            })
-        }
-        if (flag === 1) {
-            mainEventsUl.classList.add('list-events-list');
-            mainEventsUl.classList.remove('all-events-list');
-            eventItem.forEach((elem) => {
-                elem.classList.add('event-item__list')
-            })
-            eventItemTitle.forEach((elem) => {
-                elem.classList.add('event-item-title--list')
-            })
-            eventItemDescription.forEach((elem) => {
-                elem.classList.add('event-item-description__list')
-
-            })
-            eventItemImage.forEach((elem) => {
-                elem.classList.add('event-img__list')
-            })
-        }
-
+let viewEvents = new ViewEvents(viewEventsBtn, classes, mapBlock, mainEventsUl)
+viewEventsBtn.forEach((elem) => {
+    elem.addEventListener('click', function () {
+        viewEvents.changeViewHandler(this)
     })
 })
+
+if (sessionStorage.getItem('btnflag')) {
+    viewEvents.changeViewHandler(false)
+}
+
