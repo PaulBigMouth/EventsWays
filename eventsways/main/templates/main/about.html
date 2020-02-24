@@ -3,7 +3,7 @@
 {% block content %}
 
 <section class="overview-banner">
-    <img src="{% static "assets/img/overviewBanner.gif" %}" class="overview-banner-img" alt="">
+    <img src="{% static "assets/img/1.gif" %}" class="overview-banner-img" alt="">
     <div class="overview-banner-inner">
         <h1>EVENTSWAYS</h1>
     </div>
@@ -131,24 +131,23 @@
                 <i class="far fa-window-close fa-lg"></i>
             </div>
             <div class=" choiceEventImg">
-                <a href="#">
-                    <img src="./img/gallery-image-2.jpg" alt="">
+                <a href="{{ random_item.get_absolute_url }}">
+                    <img src="{{ random_item.events_image.url }}" alt="">
                 </a>
             </div>
             <div class="container">
                 <div class="form-event-up-content choiceEventContent">
-                    <h2 class="form-event-title">Праздние епиа</h3>
+                    <h2 class="form-event-title">{{ random_item.title }}</h3>
                         <div class="form-event-up-time">
                             <p class="event-item-date">
-                                <i class="far fa-calendar-alt"></i> 31 февраля 2033
-                                <i class="far fa-clock"></i> 00:00
+                                <i class="far fa-calendar-alt"></i> {{ random_item.events_holding_date }}
+                                <i class="far fa-clock"></i> {{ random_item.events_holding_time }}
                             </p>
-                            <p class="form-event-address"><i class="fas fa-map-marker-alt"></i> ул.Гагарина 41а, Минск,
-                                Шарага
+                            <p class="form-event-address"><i class="fas fa-map-marker-alt"></i> {{ random_item.address }}
                             </p>
                         </div>
                         <p class="form-event-category">
-                            #жизнь
+                            #{{ random_item.category }}
                         </p>
                 </div>
             </div>
@@ -157,7 +156,7 @@
                         class="fas fa-angle-down"></i></button>
                 <div class="form-event-description-text">
                     <div>
-                        афвафаыа афыаыфа
+                        {{ random_item.body|safe }}
                     </div>
                 </div>
             </div>
