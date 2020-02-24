@@ -41,7 +41,6 @@ body {
   padding: 0;
   position: relative;
   overflow: hidden;
-  height: 100vh;
   min-height: 100vh;
 }
 
@@ -129,10 +128,7 @@ li {
   }
 }
 
-#main{
-  min-height: 90vh;
-  width: 100%;
-}
+ 
 .section-container{
   padding-top: 100px;
 }

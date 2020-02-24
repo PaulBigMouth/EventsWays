@@ -8,15 +8,15 @@ import "./assets/scss/main.scss";
   const headerInput = document.querySelector(".header-input input");
   const headerSearchIcon = document.querySelector(".header-input i");
   const html = document.querySelector("html");
-  headerInput.onblur = function () {
-    headerInputBlock.style.borderColor = "#000";
-    headerSearchIcon.style.color = "#000";
-  };
+  // headerInput.onblur = function () {
+  //   headerInputBlock.style.borderColor = "#000";
+  //   headerSearchIcon.style.color = "#000";
+  // };
 
-  headerInput.onfocus = function () {
-    headerInputBlock.style.borderColor = "#d2b356";
-    headerSearchIcon.style.color = "#d2b356";
-  };
+  // headerInput.onfocus = function () {
+  //   headerInputBlock.style.borderColor = "#d2b356";
+  //   headerSearchIcon.style.color = "#d2b356";
+  // };
 
   const burgerMenu = document.querySelector(".toggle-menu i");
   const headerList = document.querySelector(".header-list");
@@ -75,7 +75,10 @@ import "./assets/scss/main.scss";
   });
 
   window.addEventListener('load', () => {
-    document.querySelector('.loader-wrapper').style.display = 'none';
-    document.body.style.height = '100%';
+
+    setTimeout(() => {
+      document.querySelector('.loader-wrapper').style.display = 'none';
+      document.body.style.height = '100%';
+    }, 1000)
   })
 })();
