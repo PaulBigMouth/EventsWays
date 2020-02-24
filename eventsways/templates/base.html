@@ -28,12 +28,12 @@
     <nav class="header-nav">
       <div class="nav-menu">
         <div class="header-logo">
-          <a href="#">EVENTSWAYS</a>
+          <a href="{% url 'main' %}">EVENTSWAYS</a>
         </div>
         <div class="header-item-search">
           <div class="header-input">
             <i class="fas fa-search"></i>
-            <form action="{% url "events" %}" class="header-form-input">
+            <form action="" class="header-form-input">
               {{ filter.form.title }}
             </form>
           </div>
@@ -42,10 +42,10 @@
         </div>
         <ul class="header-list">
           <li class="header-list-item">
-            <a href="#" class="header-link">События</a>
+            <a href="{% url 'events' %}" class="header-link">События</a>
           </li>
           <li class="header-list-item">
-            <a href="#" class="header-link">Обзор</a>
+            <a href="{% url 'about' %}" class="header-link">Обзор</a>
           </li>
           <li class="header-list-item">
             <a href="#" class="header-link">Помощь</a>
@@ -96,7 +96,6 @@
       </div>
     </div>
   </footer>
-
   <div class="loader-wrapper">
     <span class="loader"><span class="loader-inner"></span></span>
   </div>

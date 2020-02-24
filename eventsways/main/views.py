@@ -36,7 +36,6 @@ class EventListView(FilterView):
         context['filterset'] = self.filterset
         return context
 
-
 class EventDetail(ObjectDetailMixin, View):
     model = Event
     template = 'main/event_detail.html'
@@ -45,48 +44,6 @@ class EventCreate(LoginRequiredMixin,ObjectCreateMixin,View):
     form_model = EventForm
     template = 'main/event_create.html'
     raise_exception = True
-
-class EventUpdate(LoginRequiredMixin,ObjectUpdateMixin,View):
-    model = Event
-    model_form = EventForm
-    template = 'main/event_update.html'
-    raise_exception = True
-
-class EventDelete(LoginRequiredMixin,ObjectDeleteMixin,View):
-    model = Event
-    template = 'main/event_delete.html'
-    redirect_url = 'events'
-    raise_exception = True
-
-
-class CategoryDetail(ObjectDetailMixin, View):
-    model = Category
-    template = 'main/Category_detail.html'
-
-class CategoryCreate(LoginRequiredMixin,ObjectCreateMixin,View):
-    form_model = CategoryForm
-    template = 'main/Category_create.html'
-    raise_exception = True
-
-class CategoryUpdate(LoginRequiredMixin,ObjectUpdateMixin,View):
-    model = Category
-    model_form = CategoryForm
-    template = 'main/Category_update.html'
-    raise_exception = True
-    
-class CategoryDelete(LoginRequiredMixin,ObjectDeleteMixin,View):
-    model = Category
-    template = 'main/Category_delete.html'
-    redirect_url = 'Categorys_list_url'
-    raise_exception = True
-    
-class CategoryList(ListView):
-    model = Category
-    queryset = Category.objects.all()
-    
-
-def blog(request):
-    return render(request, 'main/blog.html')
 
 def about(request):
     return render(request, 'main/about.html')
