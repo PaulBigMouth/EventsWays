@@ -129,17 +129,17 @@
   position: relative;
   overflow: hidden;
   transition: all 0.5s linear;
+  padding: 0;
+  display: grid;
 }
 .header-btn > a {
-  height: 100%;
-  width: 100%;
+  padding: 10px;
   transition: color .5s linear;
-}
-.header-list > li > .btn {
   @media screen and (max-width: 750px) {
-    padding: 10px 20%;
+    padding: 10px 40px;
   }
 }
+
 .header-btn::before {
   content: "";
   display: block;
