@@ -74,8 +74,8 @@ class Event(models.Model):
 
 
 class Category(models.Model):
-    title = models.CharField(max_length=50)
-    slug = models.SlugField(max_length = 50, unique = True)
+    title = models.CharField(max_length=50, verbose_name = 'Название категории')
+    slug = models.SlugField(max_length = 50, unique = True, verbose_name = 'Ссылка на категорию')
 
 
     def __str__(self):
