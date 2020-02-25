@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import View, ListView, DetailView
-from .models import *
-from .forms import *
-from .filters import *
+from .models import Event, Category
+from .forms import EventForm, CategoryForm
+from .filters import EventFilter
 from .utils import *
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
@@ -23,23 +23,14 @@ class EventListView(FilterView):
     template_name = 'main/events.html'
     filterset_class = EventFilter
     paginate_by = 9
-
-    countries = Address.objects.all().values_list('country', flat=True).distinct()
-
+    countries = Event.objects.order_by('country').values_list('country', flat=True).distinct()
     def get_queryset(self):
-        # Get the queryset however you usually would.  For example:
         queryset = Event.objects.filter(checked=True)
-        # Then use the query parameters and the queryset to
-        # instantiate a filterset and save it as an attribute
-        # on the view instance for later.
         self.filterset = self.filterset_class(self.request.GET, queryset=queryset)
-        # Return the filtered queryset
         return self.filterset.qs.distinct()
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # Pass the filterset to the template - it provides the form.
-
         context['filterset'] = self.filterset
         context['countries'] = self.countries
         return context

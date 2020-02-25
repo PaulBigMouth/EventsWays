@@ -23,7 +23,7 @@
             <div class="header-item-search">
               <div class="header-input">
                 <i class="fas fa-search"></i>
-                <input type="text" placeholder="Поиск событий" />
+                  {{ filter.form.title }}
               </div>
             </div>
           </div>
@@ -40,7 +40,7 @@
 
           <div class="filter-country">
             <h3>Страна</h3>
-            {{ filter.form.address__country }}
+            {{ filter.form.country }}
             <div class="selection">
               <span class="selected-option" value="">Выберите</span>
               <div class="selection-icon">
@@ -49,8 +49,8 @@
               <div class="options">
                 <ul class="options-ul">
                   {% for country in countries %}
-                  <li>{{ country }}</li>
-                  {% endfor %}
+                    {{ country }}
+                  {% endfor %}   
                 </ul>
               </div>
             </div>
@@ -70,7 +70,7 @@
       </div>
       <ul class="main-event-ul all-events-list">
         {% for object in object_list %}
-        {% include 'main/includes/event_card_template.html' %}
+          {% include 'main/includes/event_card_template.html' %}
         {% endfor %}
       </ul>
       <div class="mapbox">

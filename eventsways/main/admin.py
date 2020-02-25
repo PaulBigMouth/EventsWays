@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
-from .models import *
+from .models import Event, Category
 from django import forms
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
@@ -16,14 +16,10 @@ class EventAdminForm(forms.ModelForm):
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('title', 'slug')
     
-@admin.register(Address)
-class AddressAdmin(admin.ModelAdmin):
-    list_display = ('country','city','street','premises')
-
 
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
-    list_display = ('title', 'body', 'slug', 'events_holding_date', 'events_holding_time', 'get_image', 'category', 'address', 'checked')
+    list_display = ('title', 'body', 'slug', 'events_holding_date', 'events_holding_time', 'get_image', 'category', 'checked', 'country','city','street_and_premis', 'place')
     list_filter = ("events_holding_date",'category', 'checked')
     search_fields = ('title', 'body', 'category__title',)
     save_as = True
