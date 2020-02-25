@@ -1,7 +1,7 @@
 from django import forms
 from .models import Category, Event
 from django.core.exceptions import ValidationError
-
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
 class CategoryForm(forms.ModelForm):
     class Meta:
@@ -33,7 +33,7 @@ class EventForm(forms.ModelForm):
         widgets = {
             'title': forms.TextInput(),
             'slug': forms.TextInput(),
-            'body': forms.Textarea(),
+            'body': CKEditorUploadingWidget(),
             'events_holding_date': forms.DateInput(attrs={'type': 'date'}),
             'events_holding_time': forms.TimeInput(attrs={'type': 'time'}),
             'lng': forms.TextInput(attrs={'class': 'lngInput', 'type' : 'hidden'}),

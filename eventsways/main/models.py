@@ -20,35 +20,35 @@ def random_img():
 
 
 class Event(models.Model):
-    title = models.CharField(max_length = 50, db_index = True)
+    title = models.CharField(max_length = 50, db_index = True, verbose_name=('Название'))
 
-    slug = models.SlugField(max_length = 150, blank = True, unique = True)
+    slug = models.SlugField(max_length = 150, blank = True, unique = True, verbose_name=('Ссылка'))
 
-    body = models.TextField(blank=True, db_index = True)
+    body = models.CharField(blank=True, db_index = True, verbose_name='Описание', max_length=500)
 
-    events_holding_date = models.DateField(blank=True)
+    events_holding_date = models.DateField(blank=True, verbose_name=('Дата проведения'))
 
-    events_holding_time = models.TimeField(blank=True)
+    events_holding_time = models.TimeField(blank=True, verbose_name=('Время проведения'))
 
-    events_image = models.ImageField(upload_to="img/", height_field=None, width_field=None, max_length=None, default=random_img)
+    events_image = models.ImageField(upload_to="img/", height_field=None, width_field=None, max_length=None, default=random_img, verbose_name=('Изображение'))
 
-    category = models.ForeignKey("Category", blank = True, related_name='events', on_delete=models.CASCADE)
+    category = models.ForeignKey("Category", blank = True, related_name='events', on_delete=models.CASCADE, verbose_name=('Категория'))
 
     lng = models.CharField(max_length=50, blank=True)
 
     lat = models.CharField(max_length=50, blank=True)
 
-    place = models.CharField(max_length=50, blank=True)
+    place = models.CharField(max_length=50, blank=True, verbose_name=('Место проведения'))
 
-    street_and_premis = models.CharField(max_length=50, blank=True)
+    street_and_premis = models.CharField(max_length=50, blank=True, verbose_name=('Улица, дом/квартира'))
     
-    city = models.CharField(max_length=50, blank=True)
+    city = models.CharField(max_length=50, blank=True, verbose_name=('Город'))
     
-    country = models.CharField(max_length=50, blank=True)
+    country = models.CharField(max_length=50, blank=True, verbose_name=('Страна'))
 
     checked = models.BooleanField("Проверено", default=False)
 
-    email = models.EmailField(max_length=150)
+    email = models.EmailField(max_length=150, verbose_name=('Почта'))
 
     def __str__(self):
         return '{}'.format(self.title)
