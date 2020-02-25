@@ -38,9 +38,17 @@ class Event(models.Model):
 
     lat = models.CharField(max_length=50, blank=True)
 
-    address = models.ForeignKey("Address", blank=True, on_delete=models.CASCADE, related_name='events')
+    place = models.CharField(max_length=50, blank=True)
+
+    street_and_premis = models.CharField(max_length=50, blank=True)
+    
+    city = models.CharField(max_length=50, blank=True)
+    
+    country = models.CharField(max_length=50, blank=True)
 
     checked = models.BooleanField("Проверено", default=False)
+
+    email = models.EmailField(max_length=150)
 
     def __str__(self):
         return '{}'.format(self.title)
@@ -64,21 +72,6 @@ class Event(models.Model):
 
         ordering = ['-events_holding_date']
 
-
-class Address(models.Model):
-    premises = models.CharField(max_length=50, db_index=True)
-    street = models.CharField(max_length=50)
-    city = models.CharField(max_length=50)
-    region = models.CharField(max_length=50)
-    country = models.CharField(max_length=50)
-
-    def __str__(self):
-        return f'{self.country} - {self.city} - {self.street} - {self.premises}'
-    
-
-    class Meta:
-        verbose_name = 'Адрес'
-        verbose_name_plural = 'Адреса'
 
 class Category(models.Model):
     title = models.CharField(max_length=50)

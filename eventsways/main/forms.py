@@ -1,12 +1,7 @@
 from django import forms
-from .models import Category, Event, Address
+from .models import Category, Event
 from django.core.exceptions import ValidationError
 
-
-class AddressForm(forms.ModelForm):
-    class Meta:
-        model = Address
-        fields = ['country', 'region','city','street','premises']
 
 class CategoryForm(forms.ModelForm):
     class Meta:
@@ -33,7 +28,7 @@ class CategoryForm(forms.ModelForm):
 class EventForm(forms.ModelForm):
     class Meta:
         model = Event
-        fields = ['title', 'slug', 'body', 'events_holding_date', 'events_holding_time', 'events_image','category', 'address', 'lng', 'lat']
+        fields = ['title', 'slug', 'body', 'events_holding_date', 'events_holding_time', 'events_image','category', 'lng', 'lat', 'country','city','street_and_premis', 'place', 'email']
 
         widgets = {
             'title': forms.TextInput(),
@@ -41,8 +36,8 @@ class EventForm(forms.ModelForm):
             'body': forms.Textarea(),
             'events_holding_date': forms.DateInput(attrs={'type': 'date'}),
             'events_holding_time': forms.TimeInput(attrs={'type': 'time'}),
-            'lng': forms.TextInput(attrs={'class': 'lngInput'}),
-            'lat': forms.TextInput(attrs={'class': 'latInput'}),
+            'lng': forms.TextInput(attrs={'class': 'lngInput', 'type' : 'hidden'}),
+            'lat': forms.TextInput(attrs={'class': 'latInput', 'type' : 'hidden'}),
         }
 
     def clean_slug(self):
