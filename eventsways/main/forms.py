@@ -47,4 +47,3 @@ class EventForm(forms.ModelForm):
             raise ValidationError('Slug may not be "Create"')
         return new_slug
 
-    

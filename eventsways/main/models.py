@@ -22,7 +22,7 @@ def random_img():
 class Event(models.Model):
     title = models.CharField(max_length = 50, db_index = True, verbose_name=('Название'))
 
-    slug = models.SlugField(max_length = 150, blank = True, unique = True, verbose_name=('Ссылка'))
+    slug = models.SlugField(max_length = 150, blank = True, unique = True, verbose_name=('Ссылка(не обязательно)'))
 
     body = models.CharField(blank=True, db_index = True, verbose_name='Описание', max_length=500)
 
@@ -48,7 +48,7 @@ class Event(models.Model):
 
     checked = models.BooleanField("Проверено", default=False)
 
-    email = models.EmailField(max_length=150, verbose_name=('Почта'))
+    email = models.EmailField(max_length=150, verbose_name=('Email'))
 
     def __str__(self):
         return '{}'.format(self.title)

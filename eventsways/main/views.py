@@ -25,7 +25,7 @@ class EventListView(FilterView):
     filterset_class = EventFilter
     paginate_by = 9
     countries = Event.objects.filter(checked=True).values_list('country', flat=True).distinct()
-    print(countries)
+    #print(countries)
     def get_queryset(self):
         queryset = Event.objects.filter(checked=True)
         self.filterset = self.filterset_class(self.request.GET, queryset=queryset)
