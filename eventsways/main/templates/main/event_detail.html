@@ -12,7 +12,7 @@
 <section class="section-container event-create-section">
     <div class="container">
         <div class="event-create-inner">
-            <div class="form-create-block" data-lng="{{ event.lng }}" data-lat="{{ event.lat }}">
+            <div class="form-create-block">
                 <div class="container">
                     <div class="form-create-block-inner">
                         <div class="form-create-block-inner-up-section">
@@ -20,7 +20,7 @@
                                 <img src="{{ event.events_image.url }}" alt="">
                                 <div class="form-event-image-overlay"><i class="fas fa-search-plus fa-2x"></i></div>
                             </div>
-                            <div class="form-event-up-content">
+                            <div class="form-event-up-content" data-lng="{{ event.lng }}" data-lat="{{ event.lat }}">
                                 <h1 class="form-event-title">{{ event.title }}</h1>
                                 <div class="form-event-up-time">
                                     <p class="event-item-date">

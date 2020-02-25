@@ -9,7 +9,7 @@ from django.core.paginator import Paginator
 from django_filters.views import FilterView
 from django.db.models import Q
 import datetime, random
-
+from random import choice
 def main(request):
     top_events = Event.objects.filter(checked=True)[:8]
     context = {
