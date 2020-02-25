@@ -5,7 +5,14 @@
 <section class="overview-banner">
     <img src="{% static "assets/img/1.gif" %}" class="overview-banner-img" alt="">
     <div class="overview-banner-inner">
-        <h1>EVENTSWAYS</h1>
+        <h1>
+            EVENTSWAYS
+            <span class="bottom-span"></span>
+            <span class="right-span"></span>
+            <span class="top-span"></span>
+            <span class="left-span"></span>
+        </h1>
+
     </div>
 </section>
 
@@ -117,9 +124,18 @@
 </section>
 
 <section class="choiceEvent">
-
-    <div class="choiceButton">
-        <button>Случайное событие</button>
+    <div class="choiceImg">
+        <img src="{% static "assets/img/2.jpg" %}" alt="">
+    </div>
+    <div class="choiceEventText">
+        <div class="container">
+            <div class="choiceEventTextInner">
+                <h2>Клацни чтобы получить случайное Событие</h2>
+                <div class="choiceButton">
+                    <button>Событие</button>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 <div id="overviewOverlay">
@@ -136,14 +152,16 @@
                 </a>
             </div>
             <div class="container">
-                <div class="form-event-up-content choiceEventContent">
+                <div class="form-event-up-content choiceEventContent" data-lat='{{ random_item.lat }}'
+                    data-lng='{{ random_item.lng }}'>
                     <h2 class="form-event-title">{{ random_item.title }}</h3>
                         <div class="form-event-up-time">
                             <p class="event-item-date">
                                 <i class="far fa-calendar-alt"></i> {{ random_item.events_holding_date }}
                                 <i class="far fa-clock"></i> {{ random_item.events_holding_time }}
                             </p>
-                            <p class="form-event-address"><i class="fas fa-map-marker-alt"></i> {{ random_item.address }}
+                            <p class="form-event-address"><i class="fas fa-map-marker-alt"></i>
+                                {{ random_item.address }}
                             </p>
                         </div>
                         <p class="form-event-category">
@@ -170,6 +188,6 @@
     </section>
 </div>
 <script src="{% static "about.bundle.js" %}"></script>
-<script src="{% static "aboutMap.bundle.js" %}"></script>
+<script src="{% static "eventDetailMap.bundle.js" %}"></script>
 
 {% endblock  %}

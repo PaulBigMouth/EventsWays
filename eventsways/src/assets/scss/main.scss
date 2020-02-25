@@ -125,13 +125,15 @@ li {
 }
 
 .all-events-list {
-  grid-template-columns: 33.33333% 33.33333% 33.33333%;
-  @media screen and (max-width: $smDesktopWidth) {
+  grid-template-columns: 100%;
+  @media screen and (min-width: $smTableWidth) {
     grid-template-columns: 50% 50%;
   }
-  @media screen and (max-width: $smTableWidth) {
-    grid-template-columns: 100%;
+  @media screen and (min-width: $smDesktopWidth) {
+    grid-template-columns: 33.33333% 33.33333% 33.33333%;;
+    
   }
+  
 }
 
  
