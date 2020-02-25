@@ -48,6 +48,8 @@ class Event(models.Model):
 
     checked = models.BooleanField("Проверено", default=False)
 
+    email = models.EmailField(max_length=150)
+
     def __str__(self):
         return '{}'.format(self.title)
 
