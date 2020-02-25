@@ -6,7 +6,7 @@ mapboxgl.accessToken =
 
 import createMap from "../map/createMap";
 
-const elem = document.querySelector('.form-create-block')
+const elem = document.querySelector('.form-event-up-content')
 const marker = [+elem.getAttribute('data-lng'), +elem.getAttribute('data-lat')];
 let map = createMap('form-event-map', 13, marker)
 

@@ -22,7 +22,7 @@ class EventListView(FilterView):
     model = Event
     template_name = 'main/events.html'
     filterset_class = EventFilter
-    paginate_by = 9
+    paginate_by = 1
 
     countries = Address.objects.all().values_list('country', flat=True).distinct()
 

@@ -67,7 +67,7 @@
     height: 0%;
   }
 
-  25% {
+  35% {
     height: 0%;
   }
 
@@ -81,5 +81,149 @@
 
   100% {
     height: 0%;
+  }
+}
+
+
+@keyframes aboutBannerBottomSpan {
+  0%{
+    width: 0;
+    margin-right: 100%;
+  }
+  30%{
+    width: 0;
+    margin-right: 100%;
+  
+  }
+  40%{
+    width: 50%;
+    margin-right: 50%;
+  }
+  50%{
+    width: 100%;
+    margin-right: 0;
+  }
+  90%{
+    width: 100%;
+    margin-right: 0;
+  }
+  100%{
+    width: 0;
+    margin-right: 100%;
+  }
+}
+@keyframes aboutBannerRightSpan {
+  0%{
+    height: 0;
+    margin-top: 100%;
+  }
+  30%{
+    height: 0;
+    margin-top: 100%;
+  }
+  40%{
+    height: 50%;
+    margin-top: 50%;
+  }
+  50%{
+    height: 100%;
+    margin-top: 0;
+  }
+  90%{
+    height: 100%;
+    margin-top: 0;
+  }
+  100%{
+    height: 0;
+    margin-top: 100%;
+  }
+}
+@keyframes aboutBannerTopSpan {
+  0%{
+    width: 0;
+    margin-left: 100%;
+  }
+  30%{
+    width: 0;
+    margin-left: 100%;
+  
+  }
+  40%{
+    width: 50%;
+    margin-left: 50%;
+  }
+  50%{
+    width: 100%;
+    margin-left: 0;
+  }
+  90%{
+    width: 100%;
+    margin-left: 0;
+  }
+  100%{
+    width: 0;
+    margin-left: 100%;
+  }
+}
+
+@keyframes aboutBannerLeftSpan {
+  0%{
+    height: 0;
+    margin-bottom: 100%;
+  }
+  30%{
+    height: 0;
+    margin-bottom: 100%;
+  }
+  40%{
+    height: 50%;
+    margin-bottom: 50%;
+  }
+  50%{
+    height: 100%;
+    margin-bottom: 0;
+  }
+  90%{
+    height: 100%;
+    margin-bottom: 0;
+  }
+  100%{
+    height: 0;
+    margin-bottom: 100%;
+  }
+}
+
+@keyframes aboutBannerBackground {
+  0%{
+    background-color: transparent;
+    color: #fff;
+  }
+  30%{
+    background-color: transparent;
+    color: #fff;
+  }
+  40%{
+    background-color: transparent;
+    color: #fff;
+  }
+  50%{
+    background-color: transparent;
+    color: #fff;
+  }
+  60%{
+    background-color: transparent;
+    color: #fff;
+  }
+  70%{
+    background-color: #fff;
+    color: #000;
+  }
+  90%{
+    background-color: #fff;
+    color: #000;
+  }
+  100%{
+    background-color: transparent;
+    color: #fff;
   }
 }

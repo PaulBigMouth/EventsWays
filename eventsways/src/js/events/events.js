@@ -88,7 +88,7 @@ const select = document.querySelector('.selection');
 const options = document.querySelector('.options')
 const optionsUl = document.querySelector('.options-ul')
 const option = document.querySelectorAll('.options-ul li');
-
+const countryInput = document.querySelector('.filter-country input')
 const selection = new EventDetails(options, false, document.querySelector('.selection-icon i'), optionsUl)
 
 option.forEach((elem) => {
@@ -97,6 +97,8 @@ option.forEach((elem) => {
         let name = this.innerHTML;
         document.querySelector('.selected-option').innerHTML = name;
         console.log(selection.flag)
+        countryInput.value = name
+
     })
 })
 select.addEventListener('click', () => {

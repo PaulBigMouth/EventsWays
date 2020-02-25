@@ -31,24 +31,27 @@
     height: 100vh;  
     background-color: #fff;
     overflow: auto;
-    width: 25vw;
+    width: 100vw;
     position: relative;
     float: right;
     transform: translateX(600px);
 
     transition: transform .2s linear;
-    @media screen and (max-width: $smDesktopWidth) {
-        width: 35vw;
-    }
-    @media screen and (max-width: 920px) {
-        width: 45vw;
-    }
-    @media screen and (max-width: $tableWidth) {
+    @media screen and (min-width: $phoneWidth) {
         width: 55vw;
     }
-    @media screen and (max-width: $phoneWidth) {
-        width: 100vw;
+    @media screen and (min-width: $tableWidth) {
+        width: 45vw;
     }
+    @media screen and (min-width: 920px) {
+        width: 35vw;
+    }
+    @media screen and (min-width: $smDesktopWidth) {
+        width: 25vw
+    }
+    
+   
+    
 
 }
 .choiceCloseIcon{

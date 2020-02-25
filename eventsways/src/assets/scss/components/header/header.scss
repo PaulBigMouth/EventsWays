@@ -19,6 +19,7 @@
   align-items: center;
   position: relative;
   max-height: 42px;
+  z-index: 12;
 }
 
 .toggle-menu {
@@ -27,7 +28,6 @@
   top: 0;
   height: 100%;
   width: 95%;
-  z-index: 9;
   justify-content: flex-end;
   align-items: center;
   @media screen and (max-width: 750px) {
@@ -50,53 +50,7 @@
   letter-spacing: 1px;
 }
 
-.header-item-search {
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  z-index: 10000;
-  @media screen and (max-width: $smTableWidth) {
-    position: absolute;
-    width: 100%;
-    height: 0;
-    justify-content: center;
-    top: 140%;
-  }
-}
 
-.header-input {
-  padding: 0 10px;
-  height: 33.6px;
-  width: 300px;
-  background-color: #fff;
-  border: 2px solid #000;
-  display: flex;
-  align-items: center;
-  position: relative;
-  transition: border-color 0.1s linear;
-  @media screen and (max-width: $smTableWidth) {
-    width: 100%;
-    background-color: rgb(250, 250, 250);
-  }
-}
-.header-input > i {
-  transition: color 0.1s linear;
-}
-.header-form-input{
-  width: 100%;
-}
-.header-form-input > input {
-  margin-left: 20px;
-  height: 33.6px;
-  width: 100%;
-  background: transparent;
-  border: none;
-  outline: none;
-  position: relative;
-}
-.header-form-input > input::-ms-clear{
-  display: none;
-}
 
 
 .header-list {

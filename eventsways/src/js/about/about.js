@@ -46,3 +46,14 @@ overviewOverlayBtns.forEach((elem) => {
 document.querySelector('.choiceOverlayEvent').addEventListener('click', function () {
     console.log(this)
 })
+
+
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        document.querySelector('.bottom-span').style.animationName = 'aboutBannerBottomSpan';
+        document.querySelector('.right-span').style.animationName = 'aboutBannerRightSpan';
+        document.querySelector('.top-span').style.animationName = 'aboutBannerTopSpan';
+        document.querySelector('.left-span').style.animationName = 'aboutBannerLeftSpan';
+        document.querySelector('.overview-banner-inner h1').style.animationName = 'aboutBannerBackground';
+    }, 2000);
+})

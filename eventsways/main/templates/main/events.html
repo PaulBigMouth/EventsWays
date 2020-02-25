@@ -23,7 +23,7 @@
             <div class="header-item-search">
               <div class="header-input">
                 <i class="fas fa-search"></i>
-                <input type="text" placeholder="Поиск событий" />
+                {{ filter.form.title }}
               </div>
             </div>
           </div>
@@ -55,7 +55,8 @@
               </div>
             </div>
           </div>
-          <button type="submit" class="filter-submit-btn">Применить</button>
+          <button type="submit" class="filter-submit-btn default-btn">Применить</button>
+
         </div>
       </form>
     </div>
@@ -76,29 +77,35 @@
       <div class="mapbox">
         <div id="map"></div>
       </div>
+      <div id="pagination">
+        {% load my_tags %}
+
+        {% if is_paginated %}
+        <div id="arrows-pagination">
+          {% if page_obj.has_previous %}
+          <a href="?{% param_replace page=1 %}"><i class="fas fa-fast-backward"></i></a>
+          {% if page_obj.previous_page_number != 1 %}
+          <a href="?{% param_replace page=page_obj.previous_page_number %}"><i class="fas fa-arrow-left"></i></a>
+          {% endif %}
+          {% endif %}
+
+
+
+          {% if page_obj.has_next %}
+          {% if page_obj.next_page_number != paginator.num_pages %}
+          <a href="?{% param_replace page=page_obj.next_page_number %}"><i class="fas fa-arrow-right"></i></a>
+          {% endif %}
+          <a href="?{% param_replace page=paginator.num_pages %}"><i class="fas fa-fast-forward"></i></a>
+          {% endif %}
+        </div>
+
+        <p class="page-obj-index">{{ page_obj.start_index }} - {{ page_obj.end_index }}</p>
+        Страница {{ page_obj.number }} из {{ paginator.num_pages }}
+        {% endif %}
+      </div>
     </div>
     <!--PAGINATION-->
-    {% load my_tags %}
 
-    {% if is_paginated %}
-    {% if page_obj.has_previous %}
-    <a href="?{% param_replace page=1 %}">First</a>
-    {% if page_obj.previous_page_number != 1 %}
-    <a href="?{% param_replace page=page_obj.previous_page_number %}">Previous</a>
-    {% endif %}
-    {% endif %}
-
-    Page {{ page_obj.number }} of {{ paginator.num_pages }}
-
-    {% if page_obj.has_next %}
-    {% if page_obj.next_page_number != paginator.num_pages %}
-    <a href="?{% param_replace page=page_obj.next_page_number %}">Next</a>
-    {% endif %}
-    <a href="?{% param_replace page=paginator.num_pages %}">Last</a>
-    {% endif %}
-
-    <p>Objects {{ page_obj.start_index }}—{{ page_obj.end_index }}</p>
-    {% endif %}
 
 
 
