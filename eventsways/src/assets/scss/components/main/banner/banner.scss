@@ -46,14 +46,21 @@
   display: grid;
   grid-template-columns: 50% 50%;
   height: 100%;
+  @media screen and (max-width: $smTableWidth) {
+    grid-template-columns: 100%;
+  }
+  
 }
 .banner-content-img{
   width: 100%;
+  @media screen and (max-width: $smTableWidth) {
+    display: none;
+  }
 }
 .banner-content-img > img{
-  height: 400px;
   width: 100%;
   border-radius: 6px;
+  box-shadow: 4px 14px 28px rgba(250, 250, 250, 0.4), 4px 14px 28px rgba(255, 255, 255, 0.4);
 }
 .banner-content{
   display: flex;
@@ -68,6 +75,9 @@
 .banner-text h1 {
   font-size: rem(40);
   color: #fff;
+  @media screen and (max-width: $smTableWidth){
+    text-align: center;
+  }
 }
 .banner-text::before,
 .banner-text::after {
@@ -76,6 +86,9 @@
   height: 7px;
   background-color: $hoverColor;
   width: 45px;
+  @media screen and (max-width: $smTableWidth) {
+   display: none;
+  }
 }
 .banner-text::before {
   margin-bottom: 10px;

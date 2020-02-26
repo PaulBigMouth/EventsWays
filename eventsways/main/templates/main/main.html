@@ -5,16 +5,18 @@
   <img src="{% static "assets/img/intro-bg.jpg" %}" class="banner-img" alt="">
   <div class="container">
     <div class="banner">
-      <div class="banner-content"></div>
-      <div class="banner-text">
-        <h1>Создавай свои события у нас бесплатно</h1>
+      <div class="banner-content">
+        <div class="container">
+          <div class="banner-text">
+            <h1>Создавай свои события у нас бесплатно</h1>
+          </div>
+        </div>
+        <a href="{% url "support" %}" class="btn btn-shadow banner-btn">Подробнее</a>
       </div>
-      <a href="{% url "support" %}" class="btn btn-shadow banner-btn">Подробнее</a>
+      <div class="banner-content-img">
+        <img src="{% static "assets/img/banner-img2jpg.jpg" %}" alt="">
+      </div>
     </div>
-    <div class="banner-content-img">
-      <img src="{% static "assets/img/banner-img.jpg" %}" alt="">
-    </div>
-  </div>
   </div>
 </section>
 

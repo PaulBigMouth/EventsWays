@@ -37,7 +37,7 @@
           <div class="filter-category">
             <h3>Категории</h3>
             {% for choice in filter.form.category %}
-            <div>
+            <div class="checkbox-list-item">
               {{ choice.tag }} {{ choice.choice_label }}
             </div>
             {% endfor %}
