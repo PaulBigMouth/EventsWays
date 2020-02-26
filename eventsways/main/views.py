@@ -64,8 +64,12 @@ class EventCreate(LoginRequiredMixin,ObjectCreateMixin,View):
 
 
 def about(request):
+    count = Event.objects.filter(checked=True).count()
     items = Event.objects.filter(checked=True)
-    random_item = random.choice(items)
+    if count > 1:
+        random_item = random.choice(items)
+    else:
+        random_item = None
     context = {
         'random_item': random_item,
     }
