@@ -1,1 +1,125 @@
-!function(e){var t={};function n(o){if(t[o])return t[o].exports;var r=t[o]={i:o,l:!1,exports:{}};return e[o].call(r.exports,r,r.exports,n),r.l=!0,r.exports}n.m=e,n.c=t,n.d=function(e,t,o){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:o})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var o=Object.create(null);if(n.r(o),Object.defineProperty(o,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var r in e)n.d(o,r,function(t){return e[t]}.bind(null,r));return o},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=12)}({0:function(e,t,n){"use strict";n.d(t,"a",(function(){return o}));class o{constructor(e,t,n,o,r="fas fa-angle-down",a="fas fa-angle-up"){this.name=e,this.flag=t,this.icon=n,this.closeClassName=r,this.openClassName=a,this.elem2=o}heightChangeHandler(){this.flag?(this.name.style.height=0,this.icon.className=this.closeClassName,this.name.style.opacity=0):(this.name.style.height=this.heigthFinding(),this.icon.className=this.openClassName,this.name.style.opacity=1),this.changeFlag()}changeFlag(){this.flag=!this.flag}heigthFinding(){return this.elem2.offsetHeight+2+"px"}isOpen(){return this.flag}}},12:function(e,t,n){"use strict";n.r(t);var o=n(0);const r=document.querySelector(".description-btn"),a=document.querySelector(".map-btn"),i=document.querySelector(".form-event-address");let s=new o.a(document.querySelector(".form-event-description-text"),!1,document.querySelector(".description-btn i"),document.querySelector(".form-event-description-text div"));r.addEventListener("click",()=>{s.heightChangeHandler()});let c=new o.a(document.querySelector(".form-event-mapbox"),!1,document.querySelector(".map-btn i"),document.querySelector("#form-event-map"));a.addEventListener("click",()=>{c.heightChangeHandler()}),i.addEventListener("click",(function(){this.preventDefault,document.querySelector("#form-event-map").scrollIntoView({block:"start",behavior:"smooth"}),setTimeout(()=>{c.isOpen()||c.heightChangeHandler()},300)}));let l=new class{constructor(e,t,n){this.overlay=e,this.classes=t,this.flag=n}animateOverlay(){this.flag?(this.overlay.classList.remove(this.classes[1]),setTimeout(()=>{this.overlay.classList.remove(this.classes[0])},100)):(this.overlay.classList.add(this.classes[0]),setTimeout(()=>{this.overlay.classList.add(this.classes[1])},100)),this.changeFlag()}changeFlag(){this.flag=!this.flag}}(document.querySelector("#overviewOverlay"),["choiceOverlayOpen","choiceOpen"],!1);[document.querySelector(".choiceCloseIcon i"),document.querySelector(".choiceOverlayEvent"),document.querySelector(".choiceButton button")].forEach(e=>{e.addEventListener("click",()=>{l.animateOverlay()})}),document.querySelector(".choiceOverlayEvent").addEventListener("click",(function(){console.log(this)})),window.addEventListener("load",()=>{setTimeout(()=>{document.querySelector(".bottom-span").style.animationName="aboutBannerBottomSpan",document.querySelector(".right-span").style.animationName="aboutBannerRightSpan",document.querySelector(".top-span").style.animationName="aboutBannerTopSpan",document.querySelector(".left-span").style.animationName="aboutBannerLeftSpan",document.querySelector(".overview-banner-inner h1").style.animationName="aboutBannerBackground"},2e3)})}});
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/about/about.js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./src/js/about/about.js":
+/*!*******************************!*\
+  !*** ./src/js/about/about.js ***!
+  \*******************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _aboutOverlay__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./aboutOverlay */ \"./src/js/about/aboutOverlay.js\");\n/* harmony import */ var _utilts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utilts */ \"./src/js/utilts.js\");\n\r\n\r\n\r\n\r\nconst descriptionBtn = document.querySelector('.description-btn')\r\nconst mapBtn = document.querySelector('.map-btn');\r\n\r\nconst addressLink = document.querySelector('.form-event-address')\r\n\r\nlet description = new _utilts__WEBPACK_IMPORTED_MODULE_1__[\"default\"](document.querySelector('.form-event-description-text'), false, document.querySelector('.description-btn i'), document.querySelector('.form-event-description-text div'))\r\n\r\n\r\ndescriptionBtn.addEventListener('click', () => {\r\n    description.heightChangeHandler()\r\n})\r\n\r\n\r\nlet mapDetails = new _utilts__WEBPACK_IMPORTED_MODULE_1__[\"default\"](document.querySelector('.form-event-mapbox'), false, document.querySelector('.map-btn i'), document.querySelector('#form-event-map'))\r\n\r\nmapBtn.addEventListener('click', () => {\r\n    mapDetails.heightChangeHandler()\r\n})\r\n\r\naddressLink.addEventListener('click', function () {\r\n    this.preventDefault\r\n    document.querySelector('#form-event-map').scrollIntoView({ block: \"start\", behavior: \"smooth\" })\r\n    setTimeout(() => {\r\n        if (!mapDetails.isOpen()) {\r\n            mapDetails.heightChangeHandler()\r\n        }\r\n    }, 300)\r\n})\r\n\r\n\r\n\r\n\r\nlet overviewOverlay = new _aboutOverlay__WEBPACK_IMPORTED_MODULE_0__[\"default\"](document.querySelector('#overviewOverlay'), ['choiceOverlayOpen', 'choiceOpen'], false)\r\nlet overviewOverlayBtns = [document.querySelector('.choiceCloseIcon i'), document.querySelector('.choiceOverlayEvent'), document.querySelector('.choiceButton button')]\r\n\r\n\r\noverviewOverlayBtns.forEach((elem) => {\r\n    elem.addEventListener('click', () => {\r\n        overviewOverlay.animateOverlay()\r\n    })\r\n})\r\ndocument.querySelector('.choiceOverlayEvent').addEventListener('click', function () {\r\n    console.log(this)\r\n})\r\n\r\n\r\nwindow.addEventListener('load', () => {\r\n    setTimeout(() => {\r\n        document.querySelector('.bottom-span').style.animationName = 'aboutBannerBottomSpan';\r\n        document.querySelector('.right-span').style.animationName = 'aboutBannerRightSpan';\r\n        document.querySelector('.top-span').style.animationName = 'aboutBannerTopSpan';\r\n        document.querySelector('.left-span').style.animationName = 'aboutBannerLeftSpan';\r\n        document.querySelector('.overview-banner-inner h1').style.animationName = 'aboutBannerBackground';\r\n    }, 2000);\r\n})\n\n//# sourceURL=webpack:///./src/js/about/about.js?");
+
+/***/ }),
+
+/***/ "./src/js/about/aboutOverlay.js":
+/*!**************************************!*\
+  !*** ./src/js/about/aboutOverlay.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Overlay; });\nclass Overlay {\r\n    constructor(overlay, classes, flag) {\r\n        this.overlay = overlay;\r\n        this.classes = classes;\r\n        this.flag = flag\r\n    }\r\n\r\n    animateOverlay() {\r\n        if (!this.flag) {\r\n            this.overlay.classList.add(this.classes[0])\r\n            setTimeout(() => {\r\n                this.overlay.classList.add(this.classes[1])\r\n            }, 100)\r\n        } else {\r\n            this.overlay.classList.remove(this.classes[1])\r\n            setTimeout(() => {\r\n                this.overlay.classList.remove(this.classes[0])\r\n            }, 100)\r\n        }\r\n        this.changeFlag()\r\n    }\r\n    changeFlag() {\r\n        this.flag = !this.flag\r\n    }\r\n}\n\n//# sourceURL=webpack:///./src/js/about/aboutOverlay.js?");
+
+/***/ }),
+
+/***/ "./src/js/utilts.js":
+/*!**************************!*\
+  !*** ./src/js/utilts.js ***!
+  \**************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return EventDetails; });\nclass EventDetails {\r\n    constructor(elem, flag, icon, elem2, closeClassName = 'fas fa-angle-down', openClassName = 'fas fa-angle-up') {\r\n        this.name = elem;\r\n        this.flag = flag;\r\n        this.icon = icon;\r\n        this.closeClassName = closeClassName\r\n        this.openClassName = openClassName;\r\n        this.elem2 = elem2;\r\n    }\r\n\r\n\r\n    heightChangeHandler() {\r\n        if (!this.flag) {\r\n            this.name.style.height = this.heigthFinding();\r\n            this.icon.className = this.openClassName;\r\n            this.name.style.opacity = 1;\r\n        } else {\r\n            this.name.style.height = 0;\r\n            this.icon.className = this.closeClassName;\r\n            this.name.style.opacity = 0\r\n        }\r\n        this.changeFlag()\r\n    }\r\n    changeFlag() {\r\n        this.flag = !this.flag;\r\n    }\r\n    heigthFinding() {\r\n        return this.elem2.offsetHeight + 2 + 'px';\r\n    }\r\n    isOpen() {\r\n        return this.flag;\r\n    }\r\n}\n\n//# sourceURL=webpack:///./src/js/utilts.js?");
+
+/***/ })
+
+/******/ });

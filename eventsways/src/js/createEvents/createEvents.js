@@ -61,3 +61,4 @@ map.on('click', (e) => {
     latInput.value = e.lngLat.toArray()[1];
     console.log(lngInput.value, latInput.value)
 })
+

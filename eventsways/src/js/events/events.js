@@ -104,3 +104,6 @@ option.forEach((elem) => {
 select.addEventListener('click', () => {
     selection.heightChangeHandler()
 })
+
+
+
