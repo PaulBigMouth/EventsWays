@@ -49,13 +49,16 @@ class EventCreate(LoginRequiredMixin,ObjectCreateMixin,View):
         
     def get(self, request):
         form = self.form_model()
-        #random_events = Event.objects.filter(checked=True)[:4]
         count = Event.objects.filter(checked=True).count()
         slice = random.random() * (count - 4)
-        random_events = Event.objects.filter(checked=True)[slice: slice+4]
+        if count > 4:
+            random_events = Event.objects.filter(checked=True)[slice: slice+4]
+        else:
+            random_events = None
         context = {
             'form': form,
             'random_events': random_events,
+            'count': count,
         }
         return render(request, self.template, context)
 

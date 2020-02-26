@@ -34,7 +34,7 @@ class EventAdmin(admin.ModelAdmin):
 
     get_image.short_description = "Изображение"
 
-    def unpublished(self, request, queryset):
+    def published(self, request, queryset):
         row_update = queryset.update(checked=True)
 
         if row_update == "1":
@@ -42,7 +42,7 @@ class EventAdmin(admin.ModelAdmin):
         else:
             message_bit = f"{row_update} записей были обновлены"
 
-    def published(self, request, queryset):
+    def unpublished(self, request, queryset):
         row_update = queryset.update(checked=False)
 
         if row_update == "1":

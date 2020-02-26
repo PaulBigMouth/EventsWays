@@ -34,7 +34,9 @@
           <div class="filter-category">
             <h3>Категории</h3>
             {% for choice in filter.form.category %}
-            {{ choice.tag }} {{ choice.choice_label }}
+            <div>
+              {{ choice.tag }} {{ choice.choice_label }}
+            </div>
             {% endfor %}
           </div>
 
