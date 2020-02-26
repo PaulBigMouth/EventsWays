@@ -1,0 +1,34 @@
+.overview-social{
+    padding: 60px 0;
+}
+
+.overview-social-inner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.overview-social-title{
+    text-align: center;
+    margin: 20px 0 30px;
+    font-size: rem(36);
+    letter-spacing: 2.3px;
+    position: relative;
+    padding-bottom: 25px;
+}
+
+
+.overview-social-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    transition: all .3s linear;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 0 20px;
+}
+.overview-social-item:hover{
+    background-color: $hoverColor;
+    color: #fff;
+    transform: scale(1.2);   
+}
