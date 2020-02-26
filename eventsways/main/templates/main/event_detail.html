@@ -27,7 +27,7 @@
                                         <i class="far fa-calendar-alt"></i> {{ event.events_holding_date }}
                                         <i class="far fa-clock"></i> {{ event.events_holding_time }}
                                     </p>
-                                    <p class="form-event-address">{{ event.address}}
+                                    <p class="form-event-address">{{ event.place }}|{{ event.city }}
                                     </p>
                                 </div>
                                 <p class="form-event-category">
@@ -57,7 +57,9 @@
                 <div class="container">
                     <div class="event-create-events-list-inner">
                         <ul class="event-create-ul">
-
+                            {% for object in random_events %}
+                                {% include 'main/includes/event_card_template.html' %}
+                            {% endfor %}
                         </ul>
                     </div>
                 </div>

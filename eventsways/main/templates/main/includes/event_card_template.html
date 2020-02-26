@@ -1,14 +1,13 @@
 <li class="event-list">
   <section class="event-item" data-title="{{ object.title }}" data-date="{{ object.events_holding_date }}"
-    data-time="{{ object.events_holding_time }}" data-place="REPUBLICK | Минск" data-description="Lorem Ipsum является текст-заполнитель обычно используется в
-    графических," data-href="{{ object.get_absolute_url }}" data-image="{{ MEDIA_URL}}{{ object.events_image }}"
+    data-time="{{ object.events_holding_time }}" data-place="{{ object.place }} | {{ object.city }}" data-description="{{ object.body|safe }}" data-href="{{ object.get_absolute_url }}" data-image="{{ MEDIA_URL}}{{ object.events_image }}"
     data-lat="{{ object.lat }}" data-lng="{{ object.lng }}">
     <div class="event-img">
       <a href="{{ object.get_absolute_url }}" class="event-link-img">
         <img src="{{ MEDIA_URL}}{{ object.events_image }}" alt="" />
       </a>
     </div>
-    <div class="container">
+    <div class="container"> 
       <div class="event-item-title">
         <a href="{{ object.get_absolute_url }}">{{ object.title }}</a>
       </div>
@@ -17,10 +16,9 @@
         <i class="far fa-clock"></i> {{ object.events_holding_time }}
       </p>
       <p class="event-item-description">
-        Lorem Ipsum является текст-заполнитель обычно используется в
-        графических,
+        {{ object.body|safe }}
       </p>
-      <p class="event-item-place">REPUBLICK | <span>Минск</span></p>
+      <p class="event-item-place">{{ object.place }}|<span>{{ object.city }}</span></p>
     </div>
   </section>
 </li>

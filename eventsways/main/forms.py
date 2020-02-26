@@ -28,7 +28,7 @@ class CategoryForm(forms.ModelForm):
 class EventForm(forms.ModelForm):
     class Meta:
         model = Event
-        fields = ['email','slug','title','body', 'events_holding_date', 'events_holding_time', 'events_image','category', 'lng', 'lat', 'country','city','street_and_premis']
+        fields = ['email','slug','title','body', 'events_holding_date', 'events_holding_time', 'events_image','category', 'lng', 'lat', 'country','city','street_and_premis', 'place']
 
         widgets = {
             'title': forms.TextInput(),

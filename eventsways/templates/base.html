@@ -39,7 +39,7 @@
             <a href="{% url 'about' %}" class="header-link">Обзор</a>
           </li>
           <li class="header-list-item">
-            <a href="#" class="header-link">Помощь</a>
+            <a href="{% url 'support' %}" class="header-link">Помощь</a>
           </li>
           <li><button class="header-btn btn"><a href="{% url "event_create_url" %}">Создать событие</a></button></li>
         </ul>
@@ -68,16 +68,16 @@
             <ul class="footer-ul">
               <li class="footer-list"><a href="{% url 'events' %}">События</a></li>
               <li class="footer-list"><a href="{% url 'about' %}">Обзор</a></li>
-              <li class="footer-list"><a href="#">Помощь</a></li>
+              <li class="footer-list"><a href="{% url 'support' %}">Помощь</a></li>
             </ul>
           </nav>
           <div class="footer-social">
             <p>Мы в Соц.сетях</p>
             <div class="footer-social-items">
-              <a href=""><i class="fab fa-instagram"></i></a>
-              <a href=""><i class="fab fa-youtube"></i></a>
-              <a href=""><i class="fab fa-twitter"></i></a>
-              <a href=""><i class="fab fa-telegram-plane"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-telegram-plane"></i></a>
             </div>
           </div>
         </div>
