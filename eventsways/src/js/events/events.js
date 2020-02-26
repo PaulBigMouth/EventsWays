@@ -107,3 +107,22 @@ select.addEventListener('click', () => {
 
 
 
+const checkboxInput = document.querySelectorAll('.checkbox-list-item input');
+const checkboxListItem = document.querySelectorAll('.checkbox-list-item')
+
+
+
+checkboxListItem.forEach((elem, index) => {
+    elem.addEventListener('click', () => {
+        if (checkboxInput[index].checked) {
+            checkboxInput[index].checked = false;
+            elem.classList.remove('cheked-item')
+        } else {
+            checkboxInput[index].checked = true;
+            elem.classList.add('cheked-item')
+        }
+
+    })
+})
+
+

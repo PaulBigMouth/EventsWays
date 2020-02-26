@@ -25,7 +25,7 @@
     width: 0;
   }
 }
-.filters-inner::-webkit-scrollbar { width: 3px; height: 3px;}
+.filters-inner::-webkit-scrollbar { width: 7px; height: 3px;}
 .filters-inner::-webkit-scrollbar-button {  background-color: #666; }
 .filters-inner::-webkit-scrollbar-track {  background-color: #999;}
 .filters-inner::-webkit-scrollbar-track-piece { background-color: #ffffff;}
@@ -244,3 +244,23 @@
 }
 
 
+
+.checkbox-list-item{
+  border: 1px solid #444;
+  border-radius: 5px;
+  margin: 5px 0;
+  padding: 5px 0px 5px 20px;
+  cursor: pointer;
+  font-family: $roboto;
+  transition: all .2s linear;
+  box-shadow: 2px 12px 14px rgba(0, 0, 0, 0.2);
+}
+.checkbox-list-item > input{
+ display: none;
+}
+.cheked-item{
+  background-color: $hoverColor;
+  color: #fff;
+  font-weight: 700;
+  transform: translateX(5px)
+}
