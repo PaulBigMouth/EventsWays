@@ -107,8 +107,8 @@ select.addEventListener('click', () => {
 
 
 
-const checkboxInput = document.querySelectorAll('.checkbox-list-item input');
-const checkboxListItem = document.querySelectorAll('.checkbox-list-item')
+const checkboxInput = document.querySelectorAll('.category-checkbox-list-item input');
+const checkboxListItem = document.querySelectorAll('.category-checkbox-list-item')
 
 
 

@@ -59,15 +59,22 @@ window.addEventListener('load', () => {
 })
 const overviewSocialIcons = document.querySelectorAll('.overview-social-item i')
 function overviewRemoveClass() {
-    return overviewSocialIcons.forEach(elem => {
-        elem.classList.remove('fa-3x');
-        elem.classList.add('fa-2x')
-    })
-}
-window.addEventListener('resize', () => {
-    if (document.querySelector('html').clientWidth < 500) {
-        overviewRemoveClass()
+    if (document.querySelector('html').clientWidth > 500) {
+        overviewSocialIcons.forEach(elem => {
+            elem.classList.remove('fa-2x');
+            elem.classList.add('fa-3x')
+        })
+    } else {
+        overviewSocialIcons.forEach(elem => {
+            elem.classList.remove('fa-3x');
+            elem.classList.add('fa-2x')
+        })
     }
+}
+
+overviewRemoveClass()
+window.addEventListener('resize', () => {
+    overviewRemoveClass()
 })
 
 

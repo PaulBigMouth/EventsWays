@@ -47,7 +47,8 @@
 .event-create > p:nth-child(4) > input,
 .event-create > p:nth-child(12) > input,
 .event-create > p:nth-child(13) > input,
-.event-create > p:nth-child(14) > input{
+.event-create > p:nth-child(14) > input,
+.event-create > p:nth-child(15) > input{
   width: 100%;
   height: 30px;
   font-size: rem(20);
@@ -83,7 +84,8 @@ margin-top: 10px;
 .event-create > p:nth-child(4) > input:focus,
 .event-create > p:nth-child(12) > input:focus,
 .event-create > p:nth-child(13) > input:focus,
-.event-create > p:nth-child(14) > input:focus{
+.event-create > p:nth-child(14) > input:focus,
+.event-create > p:nth-child(15) > input:focus{
     border-color: $hoverColor;
 }    
 .event-create > p > input:focus{
@@ -97,8 +99,11 @@ margin-top: 10px;
     justify-content: flex-end;
     align-items: center;
     width: 100%;
+    @media screen and (max-width:720px) {
+        margin-top: 140px;
+    }
 }
-.create-event-btn button{
+.create-eventBtn{
     outline: none;
     border: none;
     background-color: rgb(10, 107, 18);
@@ -110,7 +115,13 @@ margin-top: 10px;
     
     transition: background .3s ease;
 }
-.create-event-btn button:hover{
+.create-eventBtn-red{
+    background-color: rgb(223, 19, 19);
+}
+.create-eventBtn-red:hover{
+    background-color: rgb(170, 9, 9);
+}
+.create-eventBtn:hover{
     background-color: rgb(4, 82, 11);
 }
 
@@ -137,3 +148,4 @@ margin-top: 10px;
     width: 100%;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
+@import "./eventsCreateOverlay.scss";

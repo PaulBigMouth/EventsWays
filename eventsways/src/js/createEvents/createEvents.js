@@ -62,3 +62,34 @@ map.on('click', (e) => {
     console.log(lngInput.value, latInput.value)
 })
 
+
+import Overlay from "../about/aboutOverlay";
+
+let createEventOverlay = new Overlay(document.querySelector('#overviewOverlay'), ['choiceOverlayOpen', 'choiceOpen'], false)
+
+function textAreaResize() {
+    if (document.querySelector('html').clientWidth > 380) {
+        document.querySelector('#id_body').cols = 40;
+    } else {
+        document.querySelector('#id_body').cols = 35;
+    }
+}
+
+textAreaResize()
+
+
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        createEventOverlay.animateOverlay()
+    }, 5000)
+})
+
+document.querySelector('.create-eventBtn-red').addEventListener('click', (e) => {
+    e.preventDefault()
+    createEventOverlay.animateOverlay()
+})
+
+
+window.addEventListener('resize', () => {
+    textAreaResize()
+})

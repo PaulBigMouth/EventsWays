@@ -94,7 +94,9 @@
 }
 
 
-
+.advantage-item-content-inner{
+    padding-bottom: 10px;
+}
 .advantage-inner{
     display: grid;
     grid-template-columns: 50% 50%;
@@ -127,9 +129,7 @@
 .advantage-list:hover .advantage-list-item{
     color: #fff
 }
-.advantage-list:hover .advantage-item-content-inner > p{
-    color: #fff;
-}
+
 .advantage-item-icon{
     padding: 10px 0;
 }
@@ -142,10 +142,7 @@
     font-size: rem(36);
     letter-spacing: 2px;
 }
-.advantage-item-content-inner > p{
-    color: #555;
-    transition: color .2s linear;
- }
+
 
 .choiceEvent{
     height: 500px;

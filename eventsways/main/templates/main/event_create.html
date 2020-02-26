@@ -18,9 +18,35 @@
                             <div id="create-event-map"></div>
                         </div>
                         <div class="create-event-btn">
-                            <button type='submit'>Создать событие</button>
+                            <button class="create-eventBtn" type="submit">Создать событие</button>
                         </div>
                     </form>
+                </div>
+            </div>
+            <div id="overviewOverlay">
+                <div class="choiceOverlayEvent">
+                </div>
+                <div class="create-event-window">
+                    <div class="container">
+                        <div class="create-event-window-icon">
+                            <i class="fas fa-exclamation-circle fa-3x"></i>
+                        </div>
+                        <div class="create-event-window-description">
+                            <div class="container">
+                                <p>Ваше мероприятие сначало попадает в очередь для проверки. Оно будет
+                                    добавлено в
+                                    каталог
+                                    сразу,
+                                    как наши администраторы проверят его</p>
+                            </div>
+                        </div>
+                        <div class="create-event-window-btn">
+                            <button class="create-eventBtn create-eventBtn-red">Понятно</button>
+                        </div>
+                        <div class="create-event-window-email">
+                            По всем вопросам : eventsways@gmail.com
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -29,7 +55,7 @@
                     <div class="event-create-events-list-inner">
                         <ul class="event-create-ul">
                             {% for object in random_events %}
-                                {% include 'main/includes/event_card_template.html' %}
+                            {% include 'main/includes/event_card_template.html' %}
                             {% endfor %}
                         </ul>
                     </div>
