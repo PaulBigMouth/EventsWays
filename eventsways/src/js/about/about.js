@@ -57,3 +57,20 @@ window.addEventListener('load', () => {
         document.querySelector('.overview-banner-inner h1').style.animationName = 'aboutBannerBackground';
     }, 2000);
 })
+const overviewSocialIcons = document.querySelectorAll('.overview-social-item i')
+function overviewRemoveClass() {
+    return overviewSocialIcons.forEach(elem => {
+        elem.classList.remove('fa-3x');
+        elem.classList.add('fa-2x')
+    })
+}
+if (document.querySelector('html').clientWidth < 500) {
+    overviewRemoveClass()
+}
+
+
+//Практичность
+//Надежность
+//Активность
+//Пассивность
+//
