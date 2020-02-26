@@ -64,9 +64,11 @@ function overviewRemoveClass() {
         elem.classList.add('fa-2x')
     })
 }
-if (document.querySelector('html').clientWidth < 500) {
-    overviewRemoveClass()
-}
+window.addEventListener('resize', () => {
+    if (document.querySelector('html').clientWidth < 500) {
+        overviewRemoveClass()
+    }
+})
 
 
 //Практичность
