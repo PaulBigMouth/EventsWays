@@ -13,6 +13,7 @@
 @import "./components/eventDetail/eventDetail.scss";
 @import "./components/preloader/preloader.scss";
 @import "./components/about/about.scss";
+@import "./components/help/help.scss";
 
 *,
 *:before,
@@ -101,16 +102,18 @@ li {
   grid-template-columns: 100%;
 }
 .main-list {
-  grid-template-columns: 25% 25% 25% 25%;
-  @media screen and (max-width: $smDesktopWidth) {
-    grid-template-columns: 33.3333% 33.3333% 33.3333%;
-  }
-  @media screen and (max-width: $tableWidth) {
+  grid-template-columns: 100%;
+  @media screen and (min-width: $phoneWidth) {
     grid-template-columns: 50% 50%;
   }
-  @media screen and (max-width: $phoneWidth) {
-    grid-template-columns: 100%;
+  @media screen and (min-width: $tableWidth) {
+    grid-template-columns: 33.3333% 33.3333% 33.3333%;
   }
+  @media screen and (min-width: $smDesktopWidth) {
+    grid-template-columns: 25% 25% 25% 25%;
+  }
+  
+  
 }
 
 .list-events-list{

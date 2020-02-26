@@ -17,6 +17,9 @@
         </div>
       </div>
       <!--Filtering date-->
+      <div class="clear-filter">
+        <a href="{% url 'events' %}" class="clear-filter-btn">Очистить фильтры</a>
+      </div>
       <form action="" method="get" class="filter-form">
         <div class="container">
           <div class="filter-title">
@@ -57,8 +60,8 @@
               </div>
             </div>
           </div>
-          <button type="submit" class="filter-submit-btn default-btn">Применить</button>
 
+          <button type="submit" class="filter-submit-btn default-btn">Применить</button>
         </div>
       </form>
     </div>

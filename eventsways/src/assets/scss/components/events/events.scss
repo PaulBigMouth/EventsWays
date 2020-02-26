@@ -25,6 +25,13 @@
     width: 0;
   }
 }
+.filters-inner::-webkit-scrollbar { width: 3px; height: 3px;}
+.filters-inner::-webkit-scrollbar-button {  background-color: #666; }
+.filters-inner::-webkit-scrollbar-track {  background-color: #999;}
+.filters-inner::-webkit-scrollbar-track-piece { background-color: #ffffff;}
+.filters-inner::-webkit-scrollbar-thumb { height: 50px; background-color: #666; border-radius: 3px;}
+.filters-inner::-webkit-scrollbar-corner { background-color: #999;}
+.filters-inner::-webkit-resizer { background-color: #666;}
 .filters-inner {
   padding: 100px 0 400px;
   position: fixed;
@@ -46,6 +53,7 @@
     padding-bottom: 0;
   }
 }
+
 
 .filters-close {
   display: flex;
@@ -85,7 +93,10 @@
   text-align: center;
   margin-bottom: 10px;
 }
-.filter-form > .container > div{
+.filter-title,
+.filter-date,
+.filter-category,
+.filter-country{
   margin: 40px 0;
 }
 .filter-date{
@@ -119,6 +130,10 @@
 .filter-country > input {
   display: none;
 }
+
+
+
+
 .filter-submit-btn{
   background-color: $hoverColor;
   cursor: pointer;
@@ -126,6 +141,20 @@
   padding: 8px 12px;
   float: right;
 }
+.clear-filter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 25px;
+}
+.clear-filter-btn{
+  background-color: #000;
+  font-family: $roboto;
+  padding: 6px;
+  color: #fff;
+  border-radius: 3px;
+}
+
 .mapOff{
   display: none;
 }

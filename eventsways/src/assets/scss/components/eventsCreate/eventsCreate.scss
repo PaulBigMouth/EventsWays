@@ -39,20 +39,15 @@
     @media screen and (max-width: 970px) {
         width: 100%;
     }
-    @media screen and (max-width: $smTableWidth) {
-        width: 100%
-    }
 }
 
-.event-create > p > textarea{
-    @media screen and (max-width:370px) {
-        width: 100%;
-    }
-}
+
 .event-create > p:nth-child(2) > input,
 .event-create > p:nth-child(3) > input,
-.event-create > p:nth-child(5) > input,
-.event-create > p:nth-child(6) > input{
+.event-create > p:nth-child(4) > input,
+.event-create > p:nth-child(12) > input,
+.event-create > p:nth-child(13) > input,
+.event-create > p:nth-child(14) > input{
   width: 100%;
   height: 30px;
   font-size: rem(20);
@@ -62,25 +57,42 @@
   position: relative;
   transition: border-color .2s ease;
 }
+.event-create > p:nth-child(9) > input,
+.event-create > p:nth-child(8) > input {
+    border: none;
+    border-bottom: 2px solid #ccc;
+    width: 100%;
+    height: 30px;
+    font-size: rem(20);
+    position: relative;
+    margin-top: 10px;
+}
+.event-create > p:nth-child(10) > input,
+.event-create > p:nth-child(11) > select  {
+width: 100%;
+height: 30px;
+font-size: rem(20);
+font-family: $roboto;
+margin-top: 10px;
+}
+
+
 
 .event-create > p:nth-child(2) > input:focus,
 .event-create > p:nth-child(3) > input:focus,
-.event-create > p:nth-child(5) > input:focus,
-.event-create > p:nth-child(6) > input:focus{
+.event-create > p:nth-child(4) > input:focus,
+.event-create > p:nth-child(12) > input:focus,
+.event-create > p:nth-child(13) > input:focus,
+.event-create > p:nth-child(14) > input:focus{
     border-color: $hoverColor;
 }    
 .event-create > p > input:focus{
     outline: none;
 }
-.event-create > p > input:focus ~ label {
-    color: #ccc;
-}
-.event-create > p:nth-child(10),
-.event-create > p:nth-child(11){
-    display: none;
-}
+
+
 .create-event-btn{
-    margin-top: 10px;
+    margin-top: 100px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -102,13 +114,15 @@
     background-color: rgb(4, 82, 11);
 }
 
+
 .create-event-mapbox{
     height: 300px;
     width: 100%;
-    margin-bottom: 40px;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
-
+.create-event-mapbox > h2{
+    margin: 20px;
+    text-align: center;
+}
 .marker{
     background-image: url("https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png");
             background-size: cover;
@@ -121,4 +135,5 @@
 #create-event-map{
     height: 100%;
     width: 100%;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
