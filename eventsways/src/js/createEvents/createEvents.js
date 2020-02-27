@@ -11,7 +11,21 @@ let nav = new mapboxgl.NavigationControl({
     showZoom: true
 });
 
-map.addControl(nav, "bottom-right");
+map.addControl(
+    new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl,
+        autocomplete: true,
+    })
+);
+
+setInterval(() => {
+    if (document.querySelector('svg')) {
+        document.querySelector('svg').style.display = 'none';
+
+    }
+}, 100)
+
 
 let geojson = {
     type: "FeatureCollection",
